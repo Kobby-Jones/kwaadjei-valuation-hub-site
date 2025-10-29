@@ -1,0 +1,86 @@
+---
+layout: "base.njk"
+title: "Blog"
+description: "Read the latest insights, news, and expert advice on property valuation, land management, and real estate trends in Ghana from KWAADJEI VALUATION HUB."
+permalink: "/blog/" # Sets the final URL to /blog/
+---
+    
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="about-main-content" style="background-image: url(/assets/images/heading-bg.jpg);"> {# Generic banner for blog list #}
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="content">
+              <div class="blur-bg" style="background-image: url(/assets/images/heading-bg.jpg);"></div>
+              <h4>OUR BLOG</h4>
+              <div class="line-dec"></div>
+              <h2>Insights & News</h2>
+              <p class="text-light">Stay informed with expert advice on valuation, land matters, and property trends in Ghana.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+    
+    <!-- ***** Blog Grid Start ***** -->
+    <div class="blog-grid">
+      <div class="container">
+        <div class="row">
+    
+          {# Loop through all posts in the 'post' collection #}
+          {% set postslist = collections.post %}
+          {% if postslist.length %}
+            {% for post in postslist %}
+            <div class="col-lg-4 col-md-6">
+              <div class="item">
+                <div class="thumb">
+                  <span class="category">{{ post.data.category | default("Article") }}</span>
+                  <a href="{{ post.url | url }}">
+                    <img src="{{ post.data.image | url }}" alt="{{ post.data.title }}">
+                  </a>
+                </div>
+                <div class="down-content">
+                  <div class="post-meta">
+                    <i class="fa fa-calendar"></i> {{ post.date | readableDate }} 
+                    <span style="margin: 0 5px;">|</span>
+                    <i class="fa fa-user"></i> {{ post.data.author | default("KVH Team") }}
+                  </div>
+                  <h4><a href="{{ post.url | url }}">{{ post.data.title }}</a></h4>
+                  {# You could add an excerpt here if you define one in front matter #}
+                  {# <p class="text-dark">{{ post.data.excerpt }}</p> #}
+                  <div class="text-button">
+                    <a href="{{ post.url | url }}">Read More <i class="fa fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          {% else %}
+            <div class="col-12"><p>No blog posts found yet.</p></div>
+          {% endif %}
+    
+        </div>
+    
+        <!-- Optional Pagination (If you have many posts later) -->
+        {# 
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="page-numbers">
+              <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+            </ul>
+          </div>
+        </div> 
+        #}
+    
+      </div>
+    </div>
+    <!-- ***** Blog Grid End ***** -->
+    
+    {# Include the standard CTA partial #}
+    {% include "cta.njk" %}
+    

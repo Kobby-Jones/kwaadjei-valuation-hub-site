@@ -1,0 +1,956 @@
+/* ================================================
+   01. GLOBAL STYLES & BRAND COLOR
+================================================ */
+:root {
+    --brand-color: #3da34a;
+  }
+  
+  /* ================================================
+     02. NAVIGATION BAR ADJUSTMENTS
+  ================================================ */
+  
+  /* Reduce padding within the main header container */
+  .header-area .container {
+    padding-left: 10px; /* Default is often 15px */
+    padding-right: 10px; /* Default is often 15px */
+    max-width: 100%; /* Allow container to use more width if needed */
+  }
+  
+  /* Slightly reduce padding between nav items */
+  .header-area .main-nav .nav li a {
+    padding: 10px 13px; /* Reduced horizontal padding slightly more */
+  }
+  
+  /* Responsive Fallback: Switch to mobile menu earlier */
+  @media (max-width: 1199px) {
+    .header-area .main-nav .nav {
+      display: none !important;
+    }
+    .header-area .main-nav .menu-trigger {
+      display: block !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    .header-area .main-nav .menu-trigger {
+      display: none !important;
+    }
+  }
+  
+  /* ================================================
+     03. CAROUSEL CARD STYLES (About Page)
+  ================================================ */
+  
+  /* --- Uniform Card Heights & Base --- */
+  .cities-town .item .thumb,
+  .service-spectrum-carousel .item .thumb {
+    height: 250px; /* Set a fixed, uniform height */
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+  .cities-town .item .thumb img,
+  .service-spectrum-carousel .item .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the space */
+  }
+  
+  /* --- 'Core Services' Carousel Styling --- */
+  /* Add 30% dark overlay */
+  .cities-town .item .thumb::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* 30% dark overlay */
+    z-index: 1;
+    border-radius: 20px; /* Match parent */
+    transition: all 0.3s ease;
+  }
+  .cities-town .item .thumb:hover::after {
+     background: rgba(0, 0, 0, 0.5); /* Optional darker overlay on hover */
+  }
+  /* Style for the text box (ensures it's on top of overlay) */
+  .cities-town .item .thumb h4 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgba(42, 42, 42, 0.7);
+    padding: 8px 15px;
+    border-radius: 10px;
+    z-index: 2; /* Ensure text is above the overlay */
+  }
+  
+  /* --- 'Service Spectrum' Carousel Styling --- */
+  /* The main hover overlay */
+  .service-spectrum-carousel .item .thumb .service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 3; /* Ensure overlay is above image but below fallback text initially */
+  }
+  .service-spectrum-carousel .item .thumb:hover .service-overlay {
+    opacity: 1; /* Show overlay on hover */
+  }
+  /* Green Icon Color */
+  .service-spectrum-carousel .item .thumb .service-overlay i {
+    font-size: 30px;
+    color: var(--brand-color); /* BRAND COLOR APPLIED */
+    margin-bottom: 15px;
+  }
+  /* Style for the overlay text */
+  .service-spectrum-carousel .item .thumb .service-overlay h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .service-spectrum-carousel .item .thumb .service-overlay p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  /* Fallback title for 'Service Spectrum' (non-hover) */
+  .service-spectrum-carousel .item .thumb .fallback-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgba(42, 42, 42, 0.7);
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    z-index: 2; /* Below hover overlay */
+  }
+  .service-spectrum-carousel .item .thumb:hover .fallback-title {
+    opacity: 0; /* Hide on hover */
+  }
+  
+  /* ================================================
+     04. ABOUT PAGE SPECIFIC STYLES
+  ================================================ */
+  /* Brand color for 'Vision' & 'Hallmark' */
+  .more-about .info-item h4 {
+    color: var(--brand-color); /* BRAND COLOR APPLIED */
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  /* ================================================
+     05. TEAM PAGE STYLES (agents.html)
+  ================================================ */
+  /* Featured Member Section */
+  .featured-member {
+    padding: 80px 0;
+    background-color: #f8f8f8;
+  }
+  .featured-member .left-image img {
+    border-radius: 20px;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+  .featured-member .section-heading h2 {
+    color: #2a2a2a;
+  }
+  .featured-member h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-top: 20px;
+  }
+  .featured-member .title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--brand-color);
+    display: block;
+  }
+  .featured-member .role {
+    font-size: 16px;
+    font-weight: 500;
+    color: #5a5a5a;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .featured-member p {
+    color: #2a2a2a;
+  }
+  .featured-member .main-button a {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+    color: #fff;
+  }
+  .featured-member .main-button a:hover {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+  }
+  
+  /* Team Grid Section */
+  .team-grid {
+    padding: 100px 0;
+  }
+  .team-grid .section-heading h2 {
+    color: #2a2a2a;
+  }
+  .team-grid .item {
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  }
+  .team-grid .item .thumb {
+    height: 300px; /* Uniform Height */
+    overflow: hidden;
+    position: relative;
+  }
+  .team-grid .item .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Uniform Image Cover */
+  }
+  .team-grid .item .down-content {
+    padding: 25px 30px;
+  }
+  .team-grid .item .down-content h4 a {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2a2a2a;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .team-grid .item .down-content h4 a:hover {
+    color: var(--brand-color);
+  }
+  .team-grid .item .down-content span {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--brand-color); /* Brand Color Title */
+    display: block;
+    margin-top: 5px;
+  }
+  .team-grid .item .down-content p {
+    margin-top: 15px;
+    margin-bottom: 20px; /* Space for the button */
+  }
+  /* Button Styling for Team Card */
+  .team-grid .item .down-content .text-button a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--brand-color); /* Use brand color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .team-grid .item .down-content .text-button a:hover {
+    color: #2a2a2a; /* Darken on hover */
+  }
+  .team-grid .item .down-content .text-button i {
+    margin-left: 5px;
+  }
+  
+  /* Extended Network List */
+  .network-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  .network-list li {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2a2a2a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .network-list li i {
+    color: var(--brand-color);
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+  
+  /* ================================================
+     06. AGENT DETAILS PAGE STYLES (agent-details.html)
+  ================================================ */
+  /* Main Profile Section */
+  .agent-profile-section {
+    padding: 100px 0;
+  }
+  .agent-profile-section .left-image img {
+    border-radius: 20px;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+  .agent-profile-section .section-heading h2 {
+    color: #2a2a2a;
+  }
+  .agent-profile-section h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-top: 0;
+  }
+  .agent-profile-section .title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--brand-color);
+    display: block;
+  }
+  .agent-profile-section .role {
+    font-size: 16px;
+    font-weight: 500;
+    color: #5a5a5a;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .agent-profile-section p {
+    color: #2a2a2a;
+  }
+  
+  /* Expertise & Contact Section */
+  .expertise-contact-section {
+    padding: 0 0 100px 0;
+    background-color: #f8f8f8;
+  }
+  .expertise-contact-section .section-heading {
+    margin-bottom: 30px;
+  }
+  .expertise-contact-section .section-heading h2 {
+     color: #2a2a2a;
+  }
+  .expertise-contact-section .info-item { /* Reusing info-item */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    height: 100%;
+  }
+  .expertise-contact-section .info-item h4 {
+    color: var(--brand-color);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .expertise-contact-section .info-item span,
+  .expertise-contact-section .info-item a {
+    font-size: 15px;
+    color: #2a2a2a;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .expertise-contact-section .info-item a:hover {
+    color: var(--brand-color);
+  }
+  .expertise-contact-section .info-item i {
+    margin-right: 8px;
+  }
+  
+  
+  /* ================================================
+     07. BLOG LIST PAGE STYLES (blog.html / blog.njk)
+  ================================================ */
+  .blog-grid {
+    padding: 100px 0;
+  }
+  .blog-grid .section-heading h2 {
+    color: #2a2a2a;
+  }
+  .blog-grid .item {
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  }
+  .blog-grid .item .thumb {
+    height: 250px; /* Uniform Height */
+    overflow: hidden;
+    position: relative;
+  }
+  .blog-grid .item .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Uniform Image Cover */
+  }
+  /* Category Badge */
+  .blog-grid .item .thumb .category {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: var(--brand-color);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 5px;
+    z-index: 2;
+  }
+  .blog-grid .item .down-content {
+    padding: 25px 30px 30px 30px;
+  }
+  /* Post Meta */
+  .blog-grid .item .down-content .post-meta {
+    font-size: 14px;
+    color: #5a5a5a;
+    margin-bottom: 10px;
+  }
+  .blog-grid .item .down-content .post-meta i {
+    color: var(--brand-color);
+    margin-right: 5px;
+  }
+  /* Post Title */
+  .blog-grid .item .down-content h4 a {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2a2a2a;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .blog-grid .item .down-content h4 a:hover {
+    color: var(--brand-color);
+  }
+  .blog-grid .item .down-content p {
+    margin-top: 15px;
+    margin-bottom: 20px; /* Space for the button */
+    color: #2a2a2a; /* Ensure description is dark */
+  }
+  /* Read More Button */
+  .blog-grid .item .down-content .text-button a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--brand-color); /* Use brand color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .blog-grid .item .down-content .text-button a:hover {
+    color: #2a2a2a; /* Darken on hover */
+  }
+  .blog-grid .item .down-content .text-button i {
+    margin-left: 5px;
+  }
+  /* Pagination */
+  .page-numbers { /* Copied from template */
+    margin-top: 60px;
+    text-align: center;
+  }
+  .page-numbers li {
+    display: inline-block;
+    margin: 0px 5px;
+  }
+  .page-numbers li a {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2a2a2a;
+    background-color: #eee;
+    border-radius: 50%;
+    transition: all .3s;
+  }
+  .page-numbers li a.active,
+  .page-numbers li a:hover {
+    color: #fff;
+    background-color: var(--brand-color);
+  }
+  
+  
+  /* ================================================
+     08. BLOG DETAILS PAGE STYLES (blog-details.html / post.njk)
+  ================================================ */
+  .blog-post-section {
+    padding: 100px 0;
+  }
+  /* Main Blog Content */
+  .blog-post-content .post-banner img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+  .blog-post-content .post-meta {
+    font-size: 15px;
+    color: #5a5a5a;
+    margin-bottom: 10px;
+  }
+  .blog-post-content .post-meta i {
+    color: var(--brand-color);
+    margin-right: 5px;
+  }
+  .blog-post-content .post-meta .category {
+    font-weight: 600;
+    color: var(--brand-color);
+  }
+  .blog-post-content h2 { /* Post Title */
+    font-size: 32px;
+    font-weight: 700;
+    color: #2a2a2a !important; /* Ensure dark color */
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .blog-post-content p,
+  .blog-post-content li {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2a2a2a !important; /* Ensure dark color */
+    margin-bottom: 25px;
+  }
+  .blog-post-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a2a2a !important; /* Ensure dark color */
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .blog-post-content blockquote {
+    border-left: 4px solid var(--brand-color);
+    padding-left: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #5a5a5a !important; /* Ensure dark color */
+  }
+  .blog-post-content .post-tags {
+    margin-top: 30px;
+  }
+  .blog-post-content .post-tags span {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5a5a5a;
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  /* Links within blog post */
+  .blog-post-content p a,
+  .blog-post-content li a {
+      color: var(--brand-color) !important;
+      text-decoration: underline !important;
+      font-weight: 500;
+  }
+  .blog-post-content p a:hover,
+  .blog-post-content li a:hover {
+      color: #2a2a2a !important;
+  }
+  
+  /* Sidebar */
+  .blog-sidebar .sidebar-widget {
+    background-color: #f8f8f8;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  }
+  .blog-sidebar .sidebar-widget h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-bottom: 20px;
+  }
+  /* Search Widget */
+  .blog-sidebar .search-widget form {
+    position: relative;
+  }
+  .blog-sidebar .search-widget input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 0 60px 0 20px; /* Space for button */
+  }
+  .blog-sidebar .search-widget button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: var(--brand-color);
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .blog-sidebar .search-widget button:hover {
+    background-color: #2a2a2a;
+  }
+  /* Categories Widget */
+  .blog-sidebar .categories-widget ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .blog-sidebar .categories-widget li {
+    margin-bottom: 12px;
+  }
+  .blog-sidebar .categories-widget a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #5a5a5a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .blog-sidebar .categories-widget a:hover {
+    color: var(--brand-color);
+  }
+  .blog-sidebar .categories-widget i {
+    margin-right: 8px;
+    color: var(--brand-color);
+  }
+  /* Recent Posts Widget */
+  .blog-sidebar .recent-post-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .blog-sidebar .recent-post-item:last-child {
+    margin-bottom: 0;
+  }
+  .blog-sidebar .recent-post-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+  }
+  .blog-sidebar .recent-post-item .post-info span {
+    font-size: 14px;
+    color: #5a5a5a;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .blog-sidebar .recent-post-item .post-info a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2a2a2a;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+  }
+  .blog-sidebar .recent-post-item .post-info a:hover {
+    color: var(--brand-color);
+  }
+  
+  
+  /* ================================================
+     09. CONTACT PAGE STYLES (contact.html / contact.njk)
+  ================================================ */
+  /* Form Container Styling */
+  .reservation-form {
+    padding: 100px 0 80px;
+    background: #fff; /* Ensure white background for form area */
+  }
+  /* Section Heading */
+  .reservation-form .section-heading {
+    margin-bottom: 40px;
+  }
+  .reservation-form .section-heading h2 {
+    color: #2a2a2a;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .reservation-form .section-heading p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  /* Form Styling */
+  #reservation-form fieldset { /* Use ID from contact page form */
+    margin-bottom: 25px;
+  }
+  #reservation-form label {
+    display: block;
+    color: #2a2a2a;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  #reservation-form input[type="text"],
+  #reservation-form input[type="email"],
+  #reservation-form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #e5e5e5; /* Thinner border */
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2a2a2a;
+    background: #fff;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  #reservation-form input[type="text"]:focus,
+  #reservation-form input[type="email"]:focus,
+  #reservation-form textarea:focus {
+    outline: none;
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(61, 163, 74, 0.1);
+  }
+  #reservation-form textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  #reservation-form input::placeholder,
+  #reservation-form textarea::placeholder {
+    color: #999;
+  }
+  /* Submit Button Styling */
+  #reservation-form button.main-button {
+    background-color: var(--brand-color);
+    border: 1px solid var(--brand-color);
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  #reservation-form button.main-button:hover {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Softer shadow */
+  }
+  /* Map styling */
+  #map {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  #map iframe {
+    display: block; /* Removes tiny space below iframe */
+  }
+  /* Contact Details Cards */
+  .contact-details {
+    margin-top: 0;
+  }
+  .contact-details .info-item-card {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    background: #f8f8f8;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  .contact-details .info-item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+  }
+  .contact-details .info-item-card i {
+    font-size: 24px;
+    color: var(--brand-color);
+    margin-right: 20px;
+    margin-top: 5px;
+    flex-shrink: 0;
+    width: 30px;
+    text-align: center;
+  }
+  .contact-details .info-item-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .contact-details .info-item-card p,
+  .contact-details .info-item-card a {
+    font-size: 15px;
+    color: #5a5a5a;
+    font-weight: 400; /* Adjusted weight for readability */
+    text-decoration: none;
+    line-height: 1.6;
+    word-break: break-word;
+    margin: 0;
+  }
+  .contact-details .info-item-card a {
+    display: inline-block;
+    margin-bottom: 3px;
+    transition: color 0.3s ease;
+  }
+  .contact-details .info-item-card a:hover {
+    color: var(--brand-color);
+  }
+  /* Contact page responsive adjustments */
+  @media (max-width: 991px) {
+    .reservation-form {
+      padding: 60px 0 40px;
+    }
+    #map {
+      margin-top: 40px;
+    }
+    .reservation-form .section-heading h2 {
+      font-size: 28px;
+    }
+  }
+  
+  /* ================================================
+     10. SERVICES PAGE STYLES (services.html / services.njk)
+  ================================================ */
+  .service-list-page {
+    padding: 100px 0;
+  }
+  .service-list-page .item {
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    margin-bottom: 40px; /* Increased spacing */
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  .service-list-page .item:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  }
+  .service-list-page .item .image {
+    border-radius: 15px; /* Slightly smaller radius for image */
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .service-list-page .item .image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  .service-list-page .item .right-content {
+    padding-left: 0; /* No padding needed if image is above */
+  }
+  .service-list-page .item .right-content h4 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-bottom: 10px;
+  }
+  .service-list-page .item .right-content span { /* Subtitle */
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--brand-color);
+    display: block;
+    margin-bottom: 15px;
+  }
+  .service-list-page .item .right-content p { /* Description */
+    margin-bottom: 20px;
+    color: #2a2a2a;
+  }
+  /* Style for the bullet list */
+  .service-list-page .item .right-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+  }
+  .service-list-page .item .right-content ul li {
+    font-size: 15px;
+    color: #5a5a5a;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .service-list-page .item .right-content ul li i {
+    color: var(--brand-color);
+    margin-right: 10px;
+    margin-top: 5px; /* Align icon better */
+  }
+  /* Request Service Button */
+  .service-list-page .item .main-button a {
+     background-color: var(--brand-color);
+     border-color: var(--brand-color);
+     color: #fff;
+  }
+  .service-list-page .item .main-button a:hover {
+     background-color: #2a2a2a;
+     border-color: #2a2a2a;
+  }
+  
+  /* ================================================
+     11. CLIENTS PAGE STYLES (projects.html / projects.njk)
+  ================================================ */
+  .client-list-section {
+    padding: 100px 0;
+    background-color: #f8f8f8;
+  }
+  .client-list-section .section-heading h2 {
+    color: #2a2a2a;
+  }
+  .client-list-section .section-heading p {
+    color: #5a5a5a;
+  }
+  .client-category {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    height: 100%; /* Ensures columns are equal height */
+    margin-bottom: 30px; /* Spacing between rows */
+  }
+  .client-category h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+  }
+  .client-category ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .client-category ul li {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2a2a2a;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .client-category ul li i {
+    color: var(--brand-color);
+    margin-right: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  /* Ensure brand color on info items on this page */
+  .projects-page .more-about .info-item h4 {
+    color: var(--brand-color);
+  }
+  
+  

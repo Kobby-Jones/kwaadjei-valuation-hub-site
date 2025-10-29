@@ -1,0 +1,349 @@
+---
+layout: "base.njk"
+title: "Home"
+description: "Expert Property Valuation & Real Estate Advisory in Ghana. Your trusted partner in Sunyani for accurate valuations, land management, and comprehensive real estate solutions."
+pageScripts: |
+  <script>
+    // Banner Switcher Logic (specific to index page)
+    function bannerSwitcher() {
+      next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
+      if (next.length) next.prop('checked', true);
+      else $('.sec-1-input').first().prop('checked', true);
+    }
+
+    var bannerTimer = setInterval(bannerSwitcher, 5000);
+
+    $('nav .controls label').click(function() {
+      clearInterval(bannerTimer);
+      bannerTimer = setInterval(bannerSwitcher, 5000);
+    });
+  </script>
+---
+<section id="section-1">
+    <div class="content-slider">
+      <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
+      <input type="radio" id="banner2" class="sec-1-input" name="banner">
+      <input type="radio" id="banner3" class="sec-1-input" name="banner">
+      <input type="radio" id="banner4" class="sec-1-input" name="banner">
+      <div class="slider">
+        
+        <div id="top-banner-1" class="banner">
+          <div class="banner-inner-wrapper header-text">
+            <div class="main-caption">
+              <h2>Expert Property Valuation &amp; Real Estate Advisory in Ghana</h2>
+              <h1>Your trusted partner for accurate valuations, land management, and comprehensive real estate solutions.</h1>
+              <div class="border-button"><a href="/contact/">Request a Valuation</a></div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="more-info">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-certificate text-success"></i>
+                        <h4><span>Professional Accreditation:</span><br>GhIS Certified</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-clock"></i>
+                        <h4><span>Rapid Delivery:</span><br>48-Hour Reports</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-users"></i>
+                        <h4><span>Proven Expertise:</span><br>Diverse Clientele</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="main-button">
+                          <a href="/services/">Our Services</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="top-banner-2" class="banner">
+          <div class="banner-inner-wrapper header-text">
+            <div class="main-caption">
+              <h2>Professional, Accredited, and Fast</h2>
+              <h1>Ghana Institution of Surveyors (GhIS) Certified</h1>
+              <div class="border-button"><a href="/about/">About Our Firm</a></div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="more-info">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-handshake"></i>
+                        <h4><span>Client-Centric:</span><br>Tailored Service</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-star"></i>
+                        <h4><span>Our Hallmarks:</span><br>Quality &amp; Innovation</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-globe"></i>
+                        <h4><span>Experience:</span><br>Nationwide Coverage</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="main-button">
+                          <a href="/about/">Why Choose Us</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="top-banner-3" class="banner">
+          <div class="banner-inner-wrapper header-text">
+            <div class="main-caption">
+              <h2>Serving Banks, Institutions, and Private Clients</h2>
+              <h1>Trusted by Ghana's Leading Institutions</h1>
+              <div class="border-button"><a href="/projects/">View Our Clients</a></div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="more-info">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-building"></i>
+                        <h4><span>Clients Include:</span><br>Banks &amp; Institutions</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-industry"></i>
+                        <h4><span>Projects Include:</span><br>Mining &amp; Resettlement</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-gavel"></i>
+                        <h4><span>Trusted By:</span><br>Judicial Service</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="main-button">
+                          <a href="/projects/">Our Clients</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="top-banner-4" class="banner">
+          <div class="banner-inner-wrapper header-text">
+            <div class="main-caption">
+              <h2>Rapid 48-Hour Report Delivery</h2>
+              <h1>Accurate Valuations, When You Need Them</h1>
+              <div class="border-button"><a href="/contact/">Book Consultation</a></div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="more-info">
+                    <div class="row">
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-clock"></i>
+                        <h4><span>Reports Delivered:</span><br>Within 48 Hours</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-phone"></i>
+                        <h4><span>Call Us:</span><br>0209023083</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-envelope"></i>
+                        <h4><span>Email:</span><br>Quick Response</h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <div class="main-button">
+                          <a href="/contact/">Book Consultation</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="controls">
+          <label for="banner1"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">1</span></label>
+          <label for="banner2"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">2</span></label>
+          <label for="banner3"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">3</span></label>
+          <label for="banner4"><span class="progressbar"><span class="progressbar-fill"></span></span><span class="text">4</span></label>
+        </div>
+      </nav>
+    </div>
+  </section>
+  <div class="visit-country">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2 class="text-success">Welcome to Kwaadjei Valuation Hub</h2>
+            <p class="text-dark">We are a leading Ghanaian firm of professional Valuers, Estate Brokers, Land Management Consultants, and Facility Managers based in Sunyani. Registered under the laws of Ghana and accredited by the Ghana Institution of Surveyors, we are committed to providing world-class real estate services.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="items">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-5">
+                      <div class="image">
+                        <img src="/assets/images/property_valuation_5.jpg" alt="Property Valuation">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-sm-7">
+                      <div class="right-content">
+                        <h4 class="text-success">Property Valuation</h4>
+                        <span>Residential • Commercial • Industrial</span>
+                        <div class="main-button">
+                          <a href="/services/">Explore More</a>
+                        </div>
+                        <p class="text-dark">We provide precise and independent valuations for all types of assets, including landed properties, machinery, and equipment, helping you make informed financial decisions.</p>
+                        <ul class="info">
+                          <li><i class="fa fa-file-alt text-success"></i> Mortgage &amp; Compensation</li>
+                          <li><i class="fa fa-balance-scale text-success"></i> Taxation &amp; Rating</li>
+                          <li><i class="fa fa-industry text-success"></i> Plant &amp; Machinery</li>
+                        </ul>
+                        <div class="text-button">
+                          <a href="/contact/">Request Valuation <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-5">
+                      <div class="image">
+                        <img src="/assets/images/property_valuation_6.jpg" alt="Facility Management">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-sm-7">
+                      <div class="right-content">
+                        <h4 class="text-success">Property &amp; Facility Management</h4>
+                        <span>Maximize Your Asset Value</span>
+                        <div class="main-button">
+                          <a href="/services/">Explore More</a>
+                        </div>
+                        <p class="text-dark">We maximize the value of your assets by managing properties, negotiating rents, overseeing maintenance, and ensuring your investment is profitable and well-maintained.</p>
+                        <ul class="info">
+                          <li><i class="fa fa-handshake text-success"></i> Rent Negotiations</li>
+                          <li><i class="fa fa-tools text-success"></i> Repairs &amp; Maintenance</li>
+                          <li><i class="fa fa-chart-line text-success"></i> Profitability Advice</li>
+                        </ul>
+                        <div class="text-button">
+                          <a href="/services/">Explore Management <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="item last-item">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-5">
+                      <div class="image">
+                        <img src="/assets/images/property_valuation_7.jpg" alt="Land Advisory">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-sm-7">
+                      <div class="right-content">
+                        <h4 class="text-success">Land &amp; Development Advisory</h4>
+                        <span>Acquisition • Feasibility • Registration</span>
+                        <div class="main-button">
+                          <a href="/services/">Explore More</a>
+                        </div>
+                        <p class="text-dark">From acquisition and feasibility studies to documentation and registration, our experts guide you through every stage of your property development journey.</p>
+                        <ul class="info">
+                          <li><i class="fa fa-map-marked-alt text-success"></i> Land Acquisition</li>
+                          <li><i class="fa fa-clipboard-check text-success"></i> Feasibility Studies</li>
+                          <li><i class="fa fa-folder-open text-success"></i> Land Documentation</li>
+                        </ul>
+                        <div class="text-button">
+                          <a href="/services/">View Advisory Services <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-12">
+                <ul class="page-numbers">
+                  <li><a href="/services/">1</a></li>
+                  <li class="active"><a href="/services/">2</a></li>
+                  <li><a href="/services/">3</a></li>
+                  <li><a href="/services/"><i class="fa fa-arrow-right"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="side-bar-map">
+            <div class="row">
+              <div class="col-lg-12">
+                <div id="map">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.9660205488135!2d-2.3245441!3d7.350044199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdac9a6ef1b0f73%3A0x6d3b15e48e6249ef!2sKWAADJEI%20VALUATION%20HUB!5e1!3m2!1sen!2sgh!4v1761576258966!5m2!1sen!2sgh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+                  </iframe>
+                </div>
+              </div>
+              <div class="col-lg-12 mt-4">
+                <div class="contact-card">
+                  <h5 class="text-dark">Contact Our Sunyani Office</h5>
+                  <p class="text-dark">
+                    <i class="fa fa-phone text-success"></i> 0209023083 / 0553135875<br>
+                    <i class="fa fa-envelope text-success"></i> kwaadjeivaluationhub@gmail.com<br>
+                    <i class="fa fa-map-marker-alt text-success"></i> Blessed Assurance School, SSNIT New Road, Sunyani
+                  </p>
+                  <div class="main-button">
+                    <a href="/contact/">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Get Clarity on Your Asset's Value Today</h2>
+          <h4>Whether for a mortgage, investment, or compensation, you need a valuation you can trust.</h4>
+        </div>
+        <div class="col-lg-4">
+          <div class="border-button">
+            <a href="/contact/">Request a Valuation Today</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,21 @@
+{
+    "name": "kwaadjei-valuation-hub-ssg",
+    "version": "1.0.0",
+    "description": "Static site for Kwaadjei Valuation Hub using Eleventy and Decap CMS",
+    "main": ".eleventy.js",
+    "scripts": {
+      "start": "npx @11ty/eleventy --serve --quiet",
+      "build": "npx @11ty/eleventy"
+    },
+    "keywords": [
+      "eleventy",
+      "ssg",
+      "decapcms"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@11ty/eleventy": "^2.0.1"
+    }
+  }
+  

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Dynamic Page Title -->
+    <title>{{ title }} - {{ metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ '/vendor/bootstrap/css/bootstrap.min.css' | url }}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ '/assets/css/fontawesome.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/templatemo-woox-travel.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/owl.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/animate.css' | url }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <!-- Consolidated Custom CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">
+  </head>
+
+  <body>
+
+    {% include "preloader.njk" %}
+    {% include "header.njk" %}
+
+    <!-- Page-specific content -->
+    {{ content | safe }}
+
+    {% include "footer.njk" %}
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ '/vendor/jquery/jquery.min.js' | url }}"></script>
+    <script src="{{ '/vendor/bootstrap/js/bootstrap.min.js' | url }}"></script>
+
+    <!-- Template JavaScript Files -->
+    <script src="{{ '/assets/js/isotope.min.js' | url }}"></script>
+    <script src="{{ '/assets/js/owl-carousel.js' | url }}"></script>
+    <script src="{{ '/assets/js/wow.js' | url }}"></script>
+    <script src="{{ '/assets/js/tabs.js' | url }}"></script>
+    <script src="{{ '/assets/js/popup.js' | url }}"></script>
+    <script src="{{ '/assets/js/custom.js' | url }}"></script>
+
+    <!-- Page-specific scripts -->
+    {% if pageScripts %}
+      {{ pageScripts | safe }}
+    {% endif %}
+
+  </body>
+</html>

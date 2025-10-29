@@ -1,0 +1,68 @@
+---
+layout: "base.njk" 
+---
+    
+{# 
+This is the layout for a single blog post. 
+It inherits from base.njk and defines the structure 
+for displaying content from the Markdown files.
+#}
+
+<!-- ***** Main Banner Area Start (Using Post Title) ***** -->
+<div class="about-main-content" style="background-image: url('{{ image | url }}');"> {# Use post image for banner #}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content">
+        <div class="blur-bg" style="background-image: url('{{ image | url }}');"></div> {# Use post image for blur #}
+        <h4>{{ category | default("Blog Post") }}</h4> {# Use category from front matter #}
+        <div class="line-dec"></div>
+        <h2>{{ title }}</h2> {# Use title from front matter #}
+        <div class="post-meta-banner" style="margin-top: 15px; color: #fff; font-size: 14px;">
+            <i class="fa fa-calendar"></i> {{ date | readableDate }} 
+            <span style="margin: 0 10px;">|</span>
+            <i class="fa fa-user"></i> {{ author | default("Kwaadjei Valuation Hub") }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ***** Main Banner Area End ***** -->
+
+<!-- ***** Blog Post Section Start ***** -->
+<div class="blog-post-section">
+<div class="container">
+  <div class="row">
+    <!-- Main Content Column -->
+    <div class="col-lg-8">
+      <div class="blog-post-content">
+        
+        {# The main content from the Markdown file goes here #}
+        {{ content | safe }}
+
+        <!-- Tags (Optional) -->
+        {% if tags %}
+        <div class="post-tags">
+          <strong>Tags:</strong> 
+          {% for tag in tags %}
+            <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+    <!-- Sidebar Column -->
+    <div class="col-lg-4">
+      {% include "blog_sidebar.njk" %} {# Include the sidebar partial #}
+    </div>
+  </div>
+</div>
+</div>
+<!-- ***** Blog Post Section End ***** -->
+
+{# Include the standard CTA partial #}
+{% include "cta.njk" %}
+

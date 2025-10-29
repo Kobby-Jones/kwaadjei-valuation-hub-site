@@ -1,0 +1,45 @@
+    <div class="blog-sidebar">
+    
+      <!-- Search Widget -->
+      <div class="sidebar-widget search-widget">
+        <h4>Search Blog</h4>
+        <form action="#"> {# Basic form, search won't work without JS/backend #}
+          <input type="text" placeholder="Search...">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    
+      <!-- Categories Widget (Static for now, can be made dynamic) -->
+      <div class="sidebar-widget categories-widget">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#"><i class="fa fa-angle-right"></i> Valuation Insights</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> Land Management</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> Property Market Trends</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> Real Estate Advisory</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> Case Studies</a></li>
+        </ul>
+      </div>
+    
+      <!-- Recent Posts Widget (Static Placeholders) -->
+      <div class="sidebar-widget recent-posts-widget">
+        <h4>Recent Posts</h4>
+        
+        {# Loop through the latest 3 posts from the collection #}
+        {% set latestPosts = collections.post | head(3) %}
+        {% for post in latestPosts %}
+        <div class="recent-post-item">
+           <img src="{{ post.data.image | url }}" alt="{{ post.data.title }}">
+           <div class="post-info">
+             <span>{{ post.date | readableDate }}</span>
+             <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+           </div>
+        </div>
+        {% else %}
+          <p>No recent posts available.</p>
+        {% endfor %}
+    
+      </div>
+    
+    </div>
+    

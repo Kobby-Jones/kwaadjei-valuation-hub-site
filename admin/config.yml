@@ -1,0 +1,33 @@
+    # Decap CMS Configuration for Kwaadjei Valuation Hub Eleventy Site
+    
+    # Backend configuration: Tells Decap how to connect to your Git repository.
+    # We use 'git-gateway' which works with Netlify Identity for authentication.
+    # Make sure you enable Netlify Identity and Git Gateway in your Netlify site settings.
+    backend:
+      name: git-gateway # Use Netlify Identity/Git Gateway
+      branch: main # Or master, depending on your default Git branch name
+    
+    # Media and Public Folders: Where uploaded images are stored and how they are accessed.
+    media_folder: "assets/images/blog" # Path where uploaded images will be saved in the repo. MUST exist.
+    public_folder: "/assets/images/blog" # Public path used in image src attributes in Markdown. MUST start with /.
+    
+    # Collections: Defines the types of content your client can edit.
+    # We only need one collection for Blog Posts.
+    collections:
+      - name: "blog" # Used in routes, e.g., /admin/#/collections/blog
+        label: "Blog Posts" # Name shown in the CMS UI
+        folder: "blog" # The folder in your repo where blog posts (.md files) are stored
+        create: true # Allow creating new posts
+        slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename format for new posts (e.g., 2025-10-29-my-post-title.md)
+        fields: # Defines the editing fields for each post in the CMS UI
+          - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"} # Hidden field, sets the Eleventy layout
+          - {label: "Title", name: "title", widget: "string"} # Simple text input for title
+          - {label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false} # Date picker
+          - {label: "Author", name: "author", widget: "string", default: "Kwaadjei Valuation Hub Team"} # Text input for author
+          - {label: "Category", name: "category", widget: "select", options: ["Valuation Insights", "Land Management", "Property Market Trends", "Real Estate Advisory", "Case Studies"]} # Dropdown for category
+          - {label: "Featured Image", name: "image", widget: "image"} # Image uploader
+          - {label: "Tags", name: "tags", widget: "list", hint: "Keywords related to the post (e.g., Valuation, Ghana)"} # List input for tags
+          - {label: "Body", name: "body", widget: "markdown"} # Rich Markdown editor for the main content
+        editor: # Enable the preview pane in the CMS
+          preview: true 
+    
