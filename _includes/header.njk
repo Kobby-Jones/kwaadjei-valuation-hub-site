@@ -1,39 +1,38 @@
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="/" class="logo d-flex align-items-center">
-                        <img src="/assets/images/OFFICE LOGO.jpg" 
-                             alt="Kwaadjei Valuation Hub Logo" 
-                             class="rounded-circle img-fluid me-2 mb-3" 
-                             style="width: 50px; height: 50px; object-fit: cover;">
-                        <span class="brand-text">
-                          {{ metadata.titleShort or "KWAADJEI VALUATION HUB" }} {# Use short title from metadata if available #}
-                        </span>
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          {# Use page.url to set active class #}
-                          <li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
-                          <li><a href="/about/" {% if page.url == '/about/' %}class="active"{% endif %}>About</a></li>
-                          <li><a href="/services/" {% if page.url == '/services/' %}class="active"{% endif %}>Services</a></li>
-                          <li><a href="/projects/" {% if page.url == '/projects/' %}class="active"{% endif %}>Clients</a></li>
-                          <li><a href="/agents/" {% if page.url == '/agents/' %}class="active"{% endif %}>Team</a></li>
-                          <li><a href="/blog/" {% if page.url.startsWith('/blog/') %}class="active"{% endif %}>Blog</a></li>
-                          <li><a href="/contact/" {% if page.url == '/contact/' %}class="active"{% endif %}>Contact</a></li>
-                      </ul>   
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="/" class="logo d-flex align-items-center">
+                    <img src="/assets/images/OFFICE LOGO.jpg" 
+                         alt="Kwaadjei Valuation Hub Logo" 
+                         class="rounded-circle img-fluid me-2 mb-3" 
+                         style="width: 50px; height: 50px; object-fit: cover;">
+                    <span class="brand-text">
+                      KWAADJEI <br> VALUATION HUB
+                    </span>
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul class="nav">
+                      {# Use page.url to set active class #}
+                      <li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+                      <li><a href="/about/" {% if page.url == '/about/' %}class="active"{% endif %}>About</a></li>
+                      <li><a href="/services/" {% if page.url == '/services/' %}class="active"{% endif %}>Services</a></li>
+                      <li><a href="/projects/" {% if page.url == '/projects/' %}class="active"{% endif %}>Clients</a></li>
+                      <li><a href="/agents/" {% if page.url == '/agents/' %}class="active"{% endif %}>Team</a></li>
+                      <li><a href="/blog/" {% if page.url.startsWith('/blog/') %}class="active"{% endif %}>Blog</a></li>
+                      <li><a href="/contact/" {% if page.url == '/contact/' %}class="active"{% endif %}>Contact</a></li>
+                  </ul>   
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+              </nav>
           </div>
       </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-    
+  </div>
+</header>
+<!-- ***** Header Area End ***** -->
