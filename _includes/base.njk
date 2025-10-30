@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  [From: _includes/base.njk]
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Dynamic Page Title -->
     <title>{{ title }} - {{ metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
 
-    <!-- Bootstrap core CSS -->
+    <link rel="canonical" href="{{ metadata.url }}{{ page.url | url }}">
+
+    <meta property="og:title" content="{{ title }} - {{ metadata.title }}">
+    <meta property="og:description" content="{{ description or metadata.description }}">
+    <meta property="og:url" content="{{ metadata.url }}{{ page.url | url }}">
+    <meta property="og:site_name" content="{{ metadata.title }}">
+    <meta property="og:type" content="website">
+    {% if image %}
+    <meta property="og:image" content="{{ metadata.url }}{{ image | url }}">
+    {% else %}
+    <meta property="og:image" content="{{ metadata.url }}/assets/images/logo.jpg"> {% endif %}
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }} - {{ metadata.title }}">
+    <meta name="twitter:description" content="{{ description or metadata.description }}">
+    {% if image %}
+    <meta name="twitter:image" content="{{ metadata.url }}{{ image | url }}">
+    {% else %}
+    <meta name="twitter:image" content="{{ metadata.url }}/assets/images/logo.jpg"> {% endif %}
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+
     <link href="{{ '/vendor/bootstrap/css/bootstrap.min.css' | url }}" rel="stylesheet">
 
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ '/assets/css/fontawesome.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/templatemo-woox-travel.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/owl.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/animate.css' | url }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
-    <!-- Consolidated Custom CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">
-  </head>
+</head>
 
   <body>
 
