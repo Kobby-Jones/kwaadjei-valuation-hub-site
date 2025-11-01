@@ -6,6 +6,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("vendor");
   eleventyConfig.addPassthroughCopy("admin"); // For Decap CMS
+  eleventyConfig.addPassthroughCopy("favicon-32x32.png");
+  eleventyConfig.addPassthroughCopy("favicon-16x16.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("site.webmanifest");
 
   /* -----------------------------
      CUSTOM COLLECTIONS
