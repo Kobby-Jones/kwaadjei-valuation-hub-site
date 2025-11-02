@@ -235,6 +235,11 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Run this dynamic section only on agent details pages
+  if (!window.location.pathname.includes('agent-details')) {
+    return; // ⛔ Stop if we're not on the agent page
+  }
+
     // --- 1. AGENT DATABASE ---
     const agentData = {
       'jonas-adjei': {

@@ -1506,6 +1506,12 @@ body{
 
 /* === LANDSCAPE MOBILE OPTIMIZATION === */
 @media (max-width: 767px) and (orientation: landscape) {
+
+  /* Center content on a smaller screen */
+  body{
+    text-align: center;
+    
+  }
   
   #section-1 {
     min-height: 500px;
