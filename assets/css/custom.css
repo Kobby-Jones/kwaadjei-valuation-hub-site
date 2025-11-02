@@ -1520,3 +1520,10 @@ body{
   }
 }
 
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+.fade-in[src] {
+  opacity: 1;
+}
