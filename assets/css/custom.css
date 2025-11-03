@@ -1725,3 +1725,35 @@ body {
     bottom: 60px;
   }
 }
+
+/* ================================================
+   12. SWIPER COMPATIBILITY & LAYOUT FIXES
+   - FIX: Prevents logo from flashing in the preloader.
+   - FIX: Restores correct layout flow after the carousel.
+================================================ */
+
+/* FIX 1: Preloader Logo Flash */
+/* Targets any image inside the preloader and forces it to be hidden,
+   ensuring only the CSS-driven dot animation is initially visible. */
+   #js-preloader img {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+
+/* FIX 2: Layout Flow Restoration */
+/* This is a highly effective method to force a container (the carousel)
+   to clear all floating children (the slides) within itself, preventing
+   them from breaking the layout of subsequent static sections. */
+.weekly-offers {
+    overflow: hidden; /* Acts as an implicit float clearer (best practice) */
+    clear: both; /* Ensures the section starts below anything that precedes it */
+}
+
+/* FIX 3: Ensures the row inside the static .more-about section is displayed correctly */
+.more-about .row {
+    clear: both; 
+    display: flex; 
+    flex-wrap: wrap;
+}
