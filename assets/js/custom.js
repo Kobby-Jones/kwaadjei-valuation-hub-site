@@ -1,3 +1,9 @@
+/**
+ * Owl Carousel Initialization removed.
+ * Swiper Initialization added for the Weekly Offers/Experience carousel.
+ * NOTE: Ensure Swiper CSS/JS files are linked in your base.njk before this script.
+ */
+
 (function ($) {
     
     "use strict";
@@ -66,47 +72,84 @@
         }
     });
 
-    $('.owl-cites-town').owlCarousel({
-        items:4,
-        loop:true,
-        dots: false,
-        nav: true,
-        autoplay: true,
-        margin:30,
-        responsive:{
-            0:{ items:1 },
-            800:{ items:2 },
-            1000:{ items:4 }
-        }
-    });
+// ==================================================================
+// SWIPER CAROUSEL INITIALIZATION (TARGETED FIX)
+// All previous Owl Carousel initialization removed/replaced here.
+// ==================================================================
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Initializing Swiper carousels...');
+    
+    // NOTE: For other pages (like about.njk) to work, you must convert 
+    // their HTML to the Swiper format and uncomment/add their initialization here.
 
-    $('.owl-weekly-offers').owlCarousel({
-        items:3,
-        loop:true,
-        dots: false,
-        nav: true,
-        autoplay: true,
-        margin:15,
-        responsive:{
-            0:{ items:1 },
-            800:{ items:2 },
-            1000:{ items:3 }
-        }
-    });
+    // 1. Weekly Offers/Experience Carousel (The one being fixed now)
+    if (document.querySelector('.weekly-offers-swiper')) {
+        new Swiper('.weekly-offers-swiper', {
+            loop: true,
+            spaceBetween: 15,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.weekly-offers-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.weekly-offers-next',
+                prevEl: '.weekly-offers-prev',
+            },
+            // Reliable Mobile Breakpoints
+            breakpoints: {
+                0: { slidesPerView: 1, spaceBetween: 10, },
+                600: { slidesPerView: 1, spaceBetween: 15, },
+                800: { slidesPerView: 2, spaceBetween: 15, },
+                1000: { slidesPerView: 3, spaceBetween: 15, }
+            }
+        });
+    }
+    
+    // --- Other Swiper Carousels (for other pages that need conversion) ---
+    /*
+    // Example for Core Services (if converted in about.njk)
+    if (document.querySelector('.core-services-swiper')) {
+        new Swiper('.core-services-swiper', {
+            // ... Swiper configuration ...
+        });
+    }
+    */
+    
+});
+// END SWIPER CAROUSEL INITIALIZATION
 
-    $('.owl-banner').owlCarousel({
-        items:1,
-        loop:true,
-        dots: false,
-        nav: true,
-        autoplay: true,
-        margin:30,
-        responsive:{
-            0:{ items:1 },
-            600:{ items:1 },
-            1000:{ items:1 }
+
+
+// Add passive event listeners for better performance
+(function() {
+    if (typeof EventTarget !== "undefined") {
+        let supportsPassive = false;
+        try {
+            const opts = Object.defineProperty({}, 'passive', {
+                get: function() {
+                    supportsPassive = true;
+                }
+            });
+            window.addEventListener("test", null, opts);
+            window.removeEventListener("test", null, opts);
+        } catch (e) {}
+        
+        if (supportsPassive) {
+            const addEvent = EventTarget.prototype.addEventListener;
+            EventTarget.prototype.addEventListener = function(type, fn, capture) {
+                const options = typeof capture === 'object' ? capture : { passive: false, capture: !!capture };
+                if (type === 'touchstart' || type === 'touchmove' || type === 'wheel' || type === 'mousewheel') {
+                    options.passive = true;
+                }
+                addEvent.call(this, type, fn, options);
+            };
         }
-    });
+    }
+})();
 
     // Menu Dropdown Toggle
     if($('.menu-trigger').length){
@@ -117,30 +160,33 @@
     }
 
     // Menu elevator animation
-    $('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-            && location.hostname == this.hostname) {
-            
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-                var width = $(window).width();
-                if(width < 991) {
-                    $('.menu-trigger').removeClass('active');
-                    $('.header-area .nav').slideUp(200);    
-                }                
-                $('html,body').animate({
-                    scrollTop: (target.offset().top) - 80
-                }, 700);
-                return false;
-            }
+$('.scroll-to-section a[href*="#"]:not([href="#"])').on('click', function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+        && location.hostname == this.hostname) {
+        
+        var target = $(this.hash);
+        target = target.length ? target : $('[name="' + this.hash.slice(1) + '"]');
+        if (target.length) {
+            var width = $(window).width();
+            if(width < 991) {
+                $('.menu-trigger').removeClass('active');
+                $('.header-area .nav').slideUp(200);    
+            }                
+            $('html,body').animate({
+                scrollTop: (target.offset().top) - 80
+            }, 700);
+            return false;
         }
-    });
+    }
+});
+// Remove or comment out lines 127-170 and replace with:
 
-    $(document).ready(function () {
+$(document).ready(function () {
+    // Only run scroll spy on pages with scroll-to-section links
+    if ($('.scroll-to-section').length) {
         $(document).on("scroll", onScroll);
         
-        //smoothscroll
+        //smoothscroll for anchor links only
         $('.scroll-to-section a[href^="#"]').on('click', function (e) {
             e.preventDefault();
             $(document).off("scroll");
@@ -149,28 +195,37 @@
             $(this).addClass('active');
           
             var target = $(this.hash);
-            $('html, body').stop().animate({
-                scrollTop: (target.offset().top) - 79
-            }, 500, 'swing', function () {
-                window.location.hash = target;
-                $(document).on("scroll", onScroll);
-            });
+            if (target.length) {
+                $('html, body').stop().animate({
+                    scrollTop: (target.offset().top) - 79
+                }, 500, 'swing', function () {
+                    window.location.hash = target;
+                    $(document).on("scroll", onScroll);
+                });
+            }
         });
-    });
+    }
+});
 
-    function onScroll(event){
-        var scrollPos = $(document).scrollTop();
-        $('.nav a').each(function () {
-            var currLink = $(this);
-            var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                $('.nav ul li a').removeClass("active");
+function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $('.scroll-to-section a[href^="#"]').each(function () {
+        var currLink = $(this);
+        var href = currLink.attr("href");
+        
+        try {
+            var refElement = $(href);
+            if (refElement.length && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('.scroll-to-section a').removeClass("active");
                 currLink.addClass("active");
             } else {
                 currLink.removeClass("active");
             }
-        });
-    }
+        } catch(e) {
+            // Skip invalid selectors
+        }
+    });
+}
 
     // Page loading animation
     $(window).on('load', function() {
@@ -349,4 +404,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
   });
-  

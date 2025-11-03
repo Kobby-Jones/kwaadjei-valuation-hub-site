@@ -1,47 +1,49 @@
-<footer>
+<footer class="site-footer" style="background-color: #1b3e2b; color: white; padding: 60px 0;">
   <div class="container">
     <div class="row">
 
-      <div class="col-lg-5 col-md-12 col-sm-12">
-        <h5 style="color: white; margin-bottom: 15px;">{{ metadata.titleShort }}</h5>
-        <p style="color: white; line-height: 1.8;">
-          P.O.Box 2014, Sunyani
-          <br>
-          Blessed Assurance School 
-           <br>
-          (Ssnit New Road Adjacent Six Stars Pharmacy)
+      <!-- Contact Info -->
+      <div class="col-lg-5 col-md-12 col-sm-12 mb-4">
+        <h5>{{ metadata.titleShort }}</h5>
+        <p style="line-height: 1.8;">
+          P.O.Box 2014, Sunyani<br>
+          Blessed Assurance School<br>
+          (SSNIT New Road Adjacent Six Stars Pharmacy)
         </p>
-        <p style="color: white;">
-          <a href="tel:+233553135875" style="color: white;">+233 (0) 55 313 5875</a><br>
-          <a href="mailto:kwaadjeivaluationhub@gmail.com" style="color: white;">kwaadjeivaluationhub@gmail.com</a>
+        <p>
+          <a href="tel:+233553135875" class="footer-link">+233 (0) 55 313 5875</a><br>
+          <a href="mailto:kwaadjeivaluationhub@gmail.com" class="footer-link">kwaadjeivaluationhub@gmail.com</a>
         </p>
       </div>
 
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <h5 style="color: white; margin-bottom: 15px;">Quick Links</h5>
-        <ul class="list-unstyled" style="line-height: 2;">
-          <li><a href="/services/" style="color: white;">Our Services</a></li>
-          <li><a href="/about/" style="color: white;">About Us</a></li>
-          <li><a href="/blog/" style="color: white;">Blog / Insights</a></li>
-          <li><a href="/contact/" style="color: white;">Contact Us</a></li>
+      <!-- Quick Links -->
+      <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="/services/">Our Services</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/blog/">Blog / Insights</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
         </ul>
       </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <h5 style="color: white; margin-bottom: 15px;">Follow Us</h5>
-        <ul class="list-unstyled d-flex">
-          <li class="me-3"><a href="#" style="color: white;">LinkedIn</a></li>
-          <li class="me-3"><a href="#" style="color: white;">Facebook</a></li>
+      <!-- Social Links -->
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled d-flex social-links">
+          <li class="me-3"><a href="#">LinkedIn</a></li>
+          <li class="me-3"><a href="#">Facebook</a></li>
         </ul>
       </div>
 
     </div>
 
-    <div class="row">
+    <!-- Footer Bottom -->
+    <div class="row mt-4">
       <div class="col-lg-12">
-        <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 20px; padding-top: 20px;">
-          <p style="text-align: center;">
-            Copyright © {{ year }} <a href="/">{{ metadata.title }}</a>. All rights reserved. 
+        <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+          <p class="text-center mb-0">
+            &copy; {{ year }} <a href="/" class="footer-link">{{ metadata.title }}</a>. All rights reserved.
           </p>
         </div>
       </div>
@@ -49,4 +51,32 @@
 
   </div>
 </footer>
-    
+
+<style>
+/* Footer Styling */
+.site-footer h5 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #a8d5ba; /* subtle lighter green for hover */
+}
+
+.footer-links li {
+  line-height: 2;
+}
+
+.social-links li a {
+  font-weight: bold;
+}
+
+.footer-link {
+  color: #fff;
+}
+</style>

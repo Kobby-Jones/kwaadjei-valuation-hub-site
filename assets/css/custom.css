@@ -1,30 +1,32 @@
 /* ================================================
-   01. GLOBAL STYLES & BRAND COLOR
+   GLOBAL STYLES & VARIABLES
 ================================================ */
 :root {
   --brand-color: #3da34a;
+  --dark-text: #2a2a2a;
+  --medium-text: #5a5a5a;
+  --light-bg: #f8f8f8;
+  --white: #fff;
+  --border-radius: 20px;
+  --transition: all 0.3s ease;
 }
 
-body{
+body {
   font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+
 /* ================================================
-   02. NAVIGATION BAR ADJUSTMENTS
+   NAVIGATION
 ================================================ */
-
-/* Reduce padding within the main header container */
 .header-area .container {
-  padding-left: 10px; /* Default is often 15px */
-  padding-right: 10px; /* Default is often 15px */
-  max-width: 100%; /* Allow container to use more width if needed */
+  padding: 0 10px;
+  max-width: 100%;
 }
 
-/* Slightly reduce padding between nav items */
 .header-area .main-nav .nav li a {
-  padding: 10px 13px; /* Reduced horizontal padding slightly more */
+  padding: 10px 13px;
 }
 
-/* Responsive Fallback: Switch to mobile menu earlier */
 @media (max-width: 1199px) {
   .header-area .main-nav .nav {
     display: none;
@@ -33,6 +35,7 @@ body{
     display: block !important;
   }
 }
+
 @media (min-width: 1200px) {
   .header-area .main-nav .menu-trigger {
     display: none !important;
@@ -40,495 +43,368 @@ body{
 }
 
 /* ================================================
-   03. CAROUSEL CARD STYLES (About Page)
+   SHARED COMPONENTS
 ================================================ */
 
-/* --- Uniform Card Heights & Base --- */
-.cities-town .item .thumb,
-.service-spectrum-carousel .item .thumb {
-  height: 250px; /* Set a fixed, uniform height */
-  overflow: hidden;
-  border-radius: 20px;
-  position: relative;
-  cursor: pointer;
-}
-.cities-town .item .thumb img,
-.service-spectrum-carousel .item .thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures image fills the space */
+/* Section Headings */
+.section-heading h2,
+.featured-member .section-heading h2,
+.team-grid .section-heading h2,
+.agent-profile-section .section-heading h2,
+.expertise-contact-section .section-heading h2,
+.blog-grid .section-heading h2,
+.reservation-form .section-heading h2,
+.client-list-section .section-heading h2 {
+  color: var(--dark-text);
 }
 
-/* --- 'Core Services' Carousel Styling --- */
-/* Add 30% dark overlay */
-.cities-town .item .thumb::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* 30% dark overlay */
-  z-index: 1;
-  border-radius: 20px; /* Match parent */
-  transition: all 0.3s ease;
-}
-.cities-town .item .thumb:hover::after {
-   background: rgba(0, 0, 0, 0.5); /* Optional darker overlay on hover */
-}
-/* Style for the text box (ensures it's on top of overlay) */
-.cities-town .item .thumb h4 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #fff;
-  background-color: rgba(42, 42, 42, 0.7);
-  padding: 8px 15px;
-  border-radius: 10px;
-  z-index: 2; /* Ensure text is above the overlay */
-}
-
-/* --- 'Service Spectrum' Carousel Styling --- */
-/* The main hover overlay */
-.service-spectrum-carousel .item .thumb .service-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  opacity: 0;
-  transition: all 0.3s ease;
-  z-index: 3; /* Ensure overlay is above image but below fallback text initially */
-}
-.service-spectrum-carousel .item .thumb:hover .service-overlay {
-  opacity: 1; /* Show overlay on hover */
-}
-/* Green Icon Color */
-.service-spectrum-carousel .item .thumb .service-overlay i {
-  font-size: 30px;
-  color: var(--brand-color); /* BRAND COLOR APPLIED */
-  margin-bottom: 15px;
-}
-/* Style for the overlay text */
-.service-spectrum-carousel .item .thumb .service-overlay h4 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-}
-.service-spectrum-carousel .item .thumb .service-overlay p {
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 0;
-}
-/* Fallback title for 'Service Spectrum' (non-hover) */
-.service-spectrum-carousel .item .thumb .fallback-title {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #fff;
-  background-color: rgba(42, 42, 42, 0.7);
-  padding: 8px 15px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  z-index: 2; /* Below hover overlay */
-}
-.service-spectrum-carousel .item .thumb:hover .fallback-title {
-  opacity: 0; /* Hide on hover */
-}
-
-/* ================================================
-   04. ABOUT PAGE SPECIFIC STYLES
-================================================ */
-/* Brand color for 'Vision' & 'Hallmark' */
-.more-about .info-item h4 {
-  color: var(--brand-color); /* BRAND COLOR APPLIED */
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-/* ================================================
-   05. TEAM PAGE STYLES (agents.html)
-================================================ */
-/* Featured Member Section */
-.featured-member {
-  padding: 80px 0;
-  background-color: #f8f8f8;
-}
-.featured-member .left-image img {
-  border-radius: 20px;
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-}
-.featured-member .section-heading h2 {
-  color: #2a2a2a;
-}
-.featured-member h3 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #2a2a2a;
-  margin-top: 20px;
-}
-.featured-member .title {
-  font-size: 18px;
-  font-weight: 600;
+/* Info Items & Cards */
+.more-about .info-item h4,
+.expertise-contact-section .info-item h4,
+.client-category h3 {
   color: var(--brand-color);
-  display: block;
-}
-.featured-member .role {
-  font-size: 16px;
-  font-weight: 500;
-  color: #5a5a5a;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-.featured-member p {
-  color: #2a2a2a;
-}
-.featured-member .main-button a {
-  background-color: var(--brand-color);
-  border-color: var(--brand-color);
-  color: #fff;
-}
-.featured-member .main-button a:hover {
-  background-color: #2a2a2a;
-  border-color: #2a2a2a;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-/* Team Grid Section */
-.team-grid {
-  padding: 100px 0;
+.more-about .info-item h4 {
+  font-size: 20px;
 }
-.team-grid .section-heading h2 {
-  color: #2a2a2a;
+
+.expertise-contact-section .info-item h4 {
+  font-size: 18px;
 }
-.team-grid .item {
-  background-color: #f8f8f8;
-  border-radius: 20px;
+
+.expertise-contact-section .info-item {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  height: 100%;
+}
+
+.expertise-contact-section .info-item span,
+.expertise-contact-section .info-item a {
+  font-size: 15px;
+  color: var(--dark-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.expertise-contact-section .info-item a:hover {
+  color: var(--brand-color);
+}
+
+.expertise-contact-section .info-item i {
+  margin-right: 8px;
+}
+
+/* Buttons */
+.main-button a,
+.featured-member .main-button a,
+.service-list-page .item .main-button a {
+  background-color: var(--brand-color);
+  border: 1px solid var(--brand-color);
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.main-button a:hover,
+.featured-member .main-button a:hover,
+.service-list-page .item .main-button a:hover {
+  background-color: var(--dark-text);
+  border-color: var(--dark-text);
+}
+
+.text-button a,
+.team-grid .item .down-content .text-button a,
+.blog-grid .item .down-content .text-button a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--brand-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.text-button a:hover,
+.team-grid .item .down-content .text-button a:hover,
+.blog-grid .item .down-content .text-button a:hover {
+  color: var(--dark-text);
+}
+
+.text-button i,
+.team-grid .item .down-content .text-button i,
+.blog-grid .item .down-content .text-button i {
+  margin-left: 5px;
+}
+
+/* Card Items */
+.team-grid .item,
+.blog-grid .item {
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
   overflow: hidden;
   margin-bottom: 30px;
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
 }
-.team-grid .item .thumb {
-  height: 300px; /* Uniform Height */
+
+.team-grid .item .thumb,
+.blog-grid .item .thumb {
   overflow: hidden;
   position: relative;
 }
-.team-grid .item .thumb img {
+
+.team-grid .item .thumb {
+  height: 300px;
+}
+
+.blog-grid .item .thumb {
+  height: 250px;
+}
+
+.team-grid .item .thumb img,
+.blog-grid .item .thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Uniform Image Cover */
+  object-fit: cover;
 }
-.team-grid .item .down-content {
+
+.team-grid .item .down-content,
+.blog-grid .item .down-content {
   padding: 25px 30px;
 }
-.team-grid .item .down-content h4 a {
-  font-size: 22px;
+
+.team-grid .item .down-content h4 a,
+.blog-grid .item .down-content h4 a {
   font-weight: 700;
-  color: #2a2a2a;
-  transition: all 0.3s ease;
+  color: var(--dark-text);
+  transition: var(--transition);
   text-decoration: none;
 }
-.team-grid .item .down-content h4 a:hover {
+
+.team-grid .item .down-content h4 a {
+  font-size: 22px;
+}
+
+.blog-grid .item .down-content h4 a {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.team-grid .item .down-content h4 a:hover,
+.blog-grid .item .down-content h4 a:hover {
   color: var(--brand-color);
 }
+
 .team-grid .item .down-content span {
   font-size: 15px;
   font-weight: 500;
-  color: var(--brand-color); /* Brand Color Title */
+  color: var(--brand-color);
   display: block;
   margin-top: 5px;
 }
-.team-grid .item .down-content p {
+
+.team-grid .item .down-content p,
+.blog-grid .item .down-content p {
   margin-top: 15px;
-  margin-bottom: 20px; /* Space for the button */
-}
-/* Button Styling for Team Card */
-.team-grid .item .down-content .text-button a {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--brand-color); /* Use brand color */
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.team-grid .item .down-content .text-button a:hover {
-  color: #2a2a2a; /* Darken on hover */
-}
-.team-grid .item .down-content .text-button i {
-  margin-left: 5px;
+  margin-bottom: 20px;
 }
 
-/* Extended Network List */
-.network-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 20px;
-}
-.network-list li {
-  font-size: 16px;
-  font-weight: 500;
-  color: #2a2a2a;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: flex-start;
-}
-.network-list li i {
-  color: var(--brand-color);
-  margin-right: 10px;
-  margin-top: 5px;
+.blog-grid .item .down-content p {
+  color: var(--dark-text);
 }
 
 /* ================================================
-   06. AGENT DETAILS PAGE STYLES (agent-details.html)
+   TEAM PAGES
 ================================================ */
-/* Main Profile Section */
-.agent-profile-section {
-  padding: 100px 0;
+
+/* Featured Member */
+.featured-member {
+  padding: 80px 0;
+  background-color: var(--light-bg);
 }
+
+.featured-member .left-image img,
 .agent-profile-section .left-image img {
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   width: 100%;
-  height: 500px;
   object-fit: cover;
 }
-.agent-profile-section .section-heading h2 {
-  color: #2a2a2a;
+
+.featured-member .left-image img {
+  height: 450px;
 }
+
+.agent-profile-section .left-image img {
+  height: 500px;
+}
+
+.featured-member h3,
 .agent-profile-section h3 {
   font-size: 28px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--dark-text);
+  margin-top: 20px;
+}
+
+.agent-profile-section h3 {
   margin-top: 0;
 }
+
+.featured-member .title,
 .agent-profile-section .title {
   font-size: 18px;
   font-weight: 600;
   color: var(--brand-color);
   display: block;
 }
+
+.featured-member .role,
 .agent-profile-section .role {
   font-size: 16px;
   font-weight: 500;
-  color: #5a5a5a;
+  color: var(--medium-text);
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+.featured-member p,
 .agent-profile-section p {
-  color: #2a2a2a;
+  color: var(--dark-text);
 }
 
-/* Expertise & Contact Section */
+/* Team Grid */
+.team-grid {
+  padding: 100px 0;
+}
+
+/* Agent Profile */
+.agent-profile-section {
+  padding: 100px 0;
+}
+
 .expertise-contact-section {
   padding: 0 0 100px 0;
-  background-color: #f8f8f8;
+  background-color: var(--light-bg);
 }
+
 .expertise-contact-section .section-heading {
   margin-bottom: 30px;
 }
-.expertise-contact-section .section-heading h2 {
-   color: #2a2a2a;
-}
-.expertise-contact-section .info-item { /* Reusing info-item */
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
-  height: 100%;
-}
-.expertise-contact-section .info-item h4 {
-  color: var(--brand-color);
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.expertise-contact-section .info-item span,
-.expertise-contact-section .info-item a {
-  font-size: 15px;
-  color: #2a2a2a;
-  font-weight: 500;
-  text-decoration: none;
-}
-.expertise-contact-section .info-item a:hover {
-  color: var(--brand-color);
-}
-.expertise-contact-section .info-item i {
-  margin-right: 8px;
+
+/* Network List */
+.network-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
 }
 
+.network-list li,
+.client-category ul li {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.network-list li i,
+.client-category ul li i {
+  color: var(--brand-color);
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.client-category ul li i {
+  font-size: 14px;
+}
 
 /* ================================================
-   07. BLOG LIST PAGE STYLES (blog.html / blog.njk)
+   BLOG PAGES
 ================================================ */
+
+/* Blog Grid */
 .blog-grid {
   padding: 100px 0;
 }
-.blog-grid .section-heading h2 {
-  color: #2a2a2a;
-}
-.blog-grid .item {
-  background-color: #f8f8f8;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 30px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
-}
-.blog-grid .item .thumb {
-  height: 250px; /* Uniform Height */
-  overflow: hidden;
-  position: relative;
-}
-.blog-grid .item .thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Uniform Image Cover */
-}
-/* Category Badge */
+
 .blog-grid .item .thumb .category {
   position: absolute;
   top: 20px;
   left: 20px;
   background-color: var(--brand-color);
-  color: #fff;
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
   padding: 5px 12px;
   border-radius: 5px;
   z-index: 2;
 }
-.blog-grid .item .down-content {
-  padding: 25px 30px 30px 30px;
-}
-/* Post Meta */
+
 .blog-grid .item .down-content .post-meta {
   font-size: 14px;
-  color: #5a5a5a;
+  color: var(--medium-text);
   margin-bottom: 10px;
 }
+
 .blog-grid .item .down-content .post-meta i {
   color: var(--brand-color);
   margin-right: 5px;
 }
-/* Post Title */
-.blog-grid .item .down-content h4 a {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2a2a2a;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  line-height: 1.4;
-}
-.blog-grid .item .down-content h4 a:hover {
-  color: var(--brand-color);
-}
-.blog-grid .item .down-content p {
-  margin-top: 15px;
-  margin-bottom: 20px; /* Space for the button */
-  color: #2a2a2a; /* Ensure description is dark */
-}
-/* Read More Button */
-.blog-grid .item .down-content .text-button a {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--brand-color); /* Use brand color */
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.blog-grid .item .down-content .text-button a:hover {
-  color: #2a2a2a; /* Darken on hover */
-}
-.blog-grid .item .down-content .text-button i {
-  margin-left: 5px;
-}
-/* Pagination */
-.page-numbers { /* Copied from template */
-  margin-top: 60px;
-  text-align: center;
-}
-.page-numbers li {
-  display: inline-block;
-  margin: 0px 5px;
-}
-.page-numbers li a {
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  text-align: center;
-  line-height: 50px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #2a2a2a;
-  background-color: #eee;
-  border-radius: 50%;
-  transition: all .3s;
-}
-.page-numbers li a.active,
-.page-numbers li a:hover {
-  color: #fff;
-  background-color: var(--brand-color);
-}
 
-
-/* ================================================
-   08. BLOG DETAILS PAGE STYLES (blog-details.html / post.njk)
-================================================ */
+/* Blog Post Details */
 .blog-post-section {
   padding: 100px 0;
 }
-/* Main Blog Content */
+
 .blog-post-content .post-banner img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   margin-bottom: 30px;
 }
+
 .blog-post-content .post-meta {
   font-size: 15px;
-  color: #5a5a5a;
+  color: var(--medium-text);
   margin-bottom: 10px;
 }
+
 .blog-post-content .post-meta i {
   color: var(--brand-color);
   margin-right: 5px;
 }
+
 .blog-post-content .post-meta .category {
   font-weight: 600;
   color: var(--brand-color);
 }
-.blog-post-content h2 { /* Post Title */
+
+.blog-post-content h2 {
   font-size: 32px;
   font-weight: 700;
-  color: #2a2a2a !important; /* Ensure dark color */
+  color: var(--dark-text) !important;
   line-height: 1.4;
   margin-bottom: 20px;
 }
+
+.blog-post-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-text) !important;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 .blog-post-content p,
 .blog-post-content li {
   font-size: 16px;
   line-height: 1.8;
-  color: #2a2a2a !important; /* Ensure dark color */
+  color: var(--dark-text) !important;
   margin-bottom: 25px;
 }
-.blog-post-content h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #2a2a2a !important; /* Ensure dark color */
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
+
 .blog-post-content blockquote {
   border-left: 4px solid var(--brand-color);
   padding-left: 20px;
@@ -536,59 +412,61 @@ body{
   font-style: italic;
   font-size: 18px;
   line-height: 1.7;
-  color: #5a5a5a !important; /* Ensure dark color */
+  color: var(--medium-text) !important;
 }
-.blog-post-content .post-tags {
-  margin-top: 30px;
-}
+
 .blog-post-content .post-tags span {
   display: inline-block;
   font-size: 14px;
   font-weight: 500;
-  color: #5a5a5a;
+  color: var(--medium-text);
   background-color: #f0f0f0;
   padding: 8px 15px;
   border-radius: 5px;
   margin-right: 8px;
   margin-bottom: 8px;
 }
-/* Links within blog post */
+
 .blog-post-content p a,
 .blog-post-content li a {
-    color: var(--brand-color) !important;
-    text-decoration: underline !important;
-    font-weight: 500;
+  color: var(--brand-color) !important;
+  text-decoration: underline !important;
+  font-weight: 500;
 }
+
 .blog-post-content p a:hover,
 .blog-post-content li a:hover {
-    color: #2a2a2a !important;
+  color: var(--dark-text) !important;
 }
 
 /* Sidebar */
 .blog-sidebar .sidebar-widget {
-  background-color: #f8f8f8;
+  background-color: var(--light-bg);
   padding: 25px;
   border-radius: 10px;
   margin-bottom: 30px;
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
 }
+
 .blog-sidebar .sidebar-widget h4 {
   font-size: 20px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--dark-text);
   margin-bottom: 20px;
 }
-/* Search Widget */
+
 .blog-sidebar .search-widget form {
   position: relative;
 }
+
 .blog-sidebar .search-widget input {
   width: 100%;
   height: 50px;
   border: 1px solid #eee;
   border-radius: 5px;
-  padding: 0 60px 0 20px; /* Space for button */
+  padding: 0 60px 0 20px;
 }
+
 .blog-sidebar .search-widget button {
   position: absolute;
   top: 0;
@@ -597,46 +475,53 @@ body{
   width: 50px;
   border: none;
   background-color: var(--brand-color);
-  color: #fff;
+  color: var(--white);
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
+
 .blog-sidebar .search-widget button:hover {
-  background-color: #2a2a2a;
+  background-color: var(--dark-text);
 }
-/* Categories Widget */
+
 .blog-sidebar .categories-widget ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
 }
+
 .blog-sidebar .categories-widget li {
   margin-bottom: 12px;
 }
+
 .blog-sidebar .categories-widget a {
   font-size: 16px;
   font-weight: 500;
-  color: #5a5a5a;
+  color: var(--medium-text);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
+
 .blog-sidebar .categories-widget a:hover {
   color: var(--brand-color);
 }
+
 .blog-sidebar .categories-widget i {
   margin-right: 8px;
   color: var(--brand-color);
 }
-/* Recent Posts Widget */
+
 .blog-sidebar .recent-post-item {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
+
 .blog-sidebar .recent-post-item:last-child {
   margin-bottom: 0;
 }
+
 .blog-sidebar .recent-post-item img {
   width: 80px;
   height: 80px;
@@ -644,74 +529,110 @@ body{
   border-radius: 10px;
   margin-right: 15px;
 }
+
 .blog-sidebar .recent-post-item .post-info span {
   font-size: 14px;
-  color: #5a5a5a;
+  color: var(--medium-text);
   display: block;
   margin-bottom: 5px;
 }
+
 .blog-sidebar .recent-post-item .post-info a {
   font-size: 16px;
   font-weight: 600;
-  color: #2a2a2a;
+  color: var(--dark-text);
   text-decoration: none;
   line-height: 1.4;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
+
 .blog-sidebar .recent-post-item .post-info a:hover {
   color: var(--brand-color);
 }
 
+/* Pagination */
+.page-numbers {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.page-numbers li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.page-numbers li a {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--dark-text);
+  background-color: #eee;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.page-numbers li a.active,
+.page-numbers li a:hover {
+  color: var(--white);
+  background-color: var(--brand-color);
+}
 
 /* ================================================
-   09. CONTACT PAGE STYLES (contact.html / contact.njk)
+   CONTACT PAGE
 ================================================ */
-/* Form Container Styling */
 .reservation-form {
   padding: 100px 0 80px;
-  background: #fff; /* Ensure white background for form area */
+  background: var(--white);
 }
-/* Section Heading */
+
 .reservation-form .section-heading {
   margin-bottom: 40px;
 }
+
 .reservation-form .section-heading h2 {
-  color: #2a2a2a;
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 15px;
 }
+
 .reservation-form .section-heading p {
   color: #666;
   font-size: 15px;
   line-height: 1.8;
 }
-/* Form Styling */
-#reservation-form fieldset { /* Use ID from contact page form */
+
+#reservation-form fieldset {
   margin-bottom: 25px;
 }
+
 #reservation-form label {
   display: block;
-  color: #2a2a2a;
+  color: var(--dark-text);
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 #reservation-form input[type="text"],
 #reservation-form input[type="email"],
 #reservation-form textarea {
   width: 100%;
   padding: 15px 20px;
-  border: 1px solid #e5e5e5; /* Thinner border */
+  border: 1px solid #e5e5e5;
   border-radius: 8px;
   font-size: 15px;
-  color: #2a2a2a;
-  background: #fff;
-  transition: all 0.3s ease;
+  color: var(--dark-text);
+  background: var(--white);
+  transition: var(--transition);
   font-family: 'Poppins', sans-serif;
 }
+
 #reservation-form input[type="text"]:focus,
 #reservation-form input[type="email"]:focus,
 #reservation-form textarea:focus {
@@ -719,64 +640,71 @@ body{
   border-color: var(--brand-color);
   box-shadow: 0 0 0 3px rgba(61, 163, 74, 0.1);
 }
+
 #reservation-form textarea {
   min-height: 150px;
   resize: vertical;
 }
+
 #reservation-form input::placeholder,
 #reservation-form textarea::placeholder {
   color: #999;
 }
-/* Submit Button Styling */
+
 #reservation-form button.main-button {
   background-color: var(--brand-color);
   border: 1px solid var(--brand-color);
-  color: #fff;
+  color: var(--white);
   padding: 15px 40px;
   font-size: 15px;
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
   text-transform: uppercase;
   letter-spacing: 1px;
   width: 100%;
   margin-top: 10px;
 }
+
 #reservation-form button.main-button:hover {
-  background-color: #2a2a2a;
-  border-color: #2a2a2a;
+  background-color: var(--dark-text);
+  border-color: var(--dark-text);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Softer shadow */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-/* Map styling */
+
 #map {
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 30px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
+
 #map iframe {
-  display: block; /* Removes tiny space below iframe */
+  display: block;
 }
-/* Contact Details Cards */
+
 .contact-details {
   margin-top: 0;
 }
+
 .contact-details .info-item-card {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
-  background: #f8f8f8;
+  background: var(--light-bg);
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
+
 .contact-details .info-item-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 20px rgba(0,0,0,0.12);
 }
+
 .contact-details .info-item-card i {
   font-size: 24px;
   color: var(--brand-color);
@@ -786,187 +714,487 @@ body{
   width: 30px;
   text-align: center;
 }
+
 .contact-details .info-item-card h4 {
   font-size: 16px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--dark-text);
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 .contact-details .info-item-card p,
 .contact-details .info-item-card a {
   font-size: 15px;
-  color: #5a5a5a;
-  font-weight: 400; /* Adjusted weight for readability */
+  color: var(--medium-text);
+  font-weight: 400;
   text-decoration: none;
   line-height: 1.6;
   word-break: break-word;
   margin: 0;
 }
+
 .contact-details .info-item-card a {
   display: inline-block;
   margin-bottom: 3px;
   transition: color 0.3s ease;
 }
+
 .contact-details .info-item-card a:hover {
   color: var(--brand-color);
 }
-/* Contact page responsive adjustments */
-@media (max-width: 991px) {
-  .reservation-form {
-    padding: 60px 0 40px;
+
+/* ================================================
+   SERVICES PAGE
+================================================ */
+
+/* ===== HERO BANNER FIX ===== */
+.hero-banner {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero-banner .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.hero-banner .content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-banner h4 {
+  color: #3da34a;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-banner h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  margin: 15px 0;
+}
+
+.hero-banner p {
+  color: #eaeaea;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.hero-banner .main-button a {
+  background-color: #3da34a;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.hero-banner .main-button a:hover {
+  background-color: #2f853a;
+  box-shadow: 0 0 20px rgba(61, 163, 74, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-banner h2 {
+    font-size: 1.9rem;
   }
-  #map {
-    margin-top: 40px;
-  }
-  .reservation-form .section-heading h2 {
-    font-size: 28px;
+  .hero-banner p {
+    font-size: 1rem;
   }
 }
 
-/* ================================================
-   10. SERVICES PAGE STYLES (services.html / services.njk)
-================================================ */
 .service-list-page {
+  position: relative;
+  background: url('/assets/images/about-content-bg-3.jpg') center/cover fixed no-repeat;
   padding: 100px 0;
+  overflow: hidden;
 }
+
+.service-list-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 0;
+}
+
+.service-list-page .container {
+  position: relative;
+  z-index: 2;
+}
+
 .service-list-page .item {
-  background-color: #f8f8f8;
-  border-radius: 20px;
-  margin-bottom: 40px; /* Increased spacing */
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(61, 163, 74, 0.3);
+  border-radius: 16px;
   padding: 30px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
 }
+
 .service-list-page .item:hover {
-   transform: translateY(-5px);
-   box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 35px rgba(61, 163, 74, 0.4);
 }
+
 .service-list-page .item .image {
-  border-radius: 15px; /* Slightly smaller radius for image */
+  border-radius: 14px;
   overflow: hidden;
   margin-bottom: 30px;
 }
+
 .service-list-page .item .image img {
   width: 100%;
   height: 250px;
   object-fit: cover;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
-.service-list-page .item .right-content {
-  padding-left: 0; /* No padding needed if image is above */
+
+.service-list-page .item:hover .image img {
+  transform: scale(1.04);
+  opacity: 0.9;
 }
-.service-list-page .item .right-content h4 {
+
+.service-list-page .right-content {
+  padding-left: 0;
+}
+
+.service-list-page .right-content h4 {
   font-size: 24px;
   font-weight: 700;
-  color: #2a2a2a;
-  margin-bottom: 10px;
+  color: var(--brand-color);
+  margin-bottom: 8px;
 }
-.service-list-page .item .right-content span { /* Subtitle */
+
+.service-list-page .right-content span {
   font-size: 15px;
   font-weight: 500;
-  color: var(--brand-color);
+  color: #e0e0e0;
   display: block;
   margin-bottom: 15px;
 }
-.service-list-page .item .right-content p { /* Description */
+
+.service-list-page .right-content p {
   margin-bottom: 20px;
-  color: #2a2a2a;
+  color: #eaeaea;
+  font-size: 15px;
+  line-height: 1.7;
 }
-/* Style for the bullet list */
-.service-list-page .item .right-content ul {
+
+.service-list-page .right-content ul {
   list-style-type: none;
   padding-left: 0;
+  margin-top: 20px;
   margin-bottom: 25px;
 }
-.service-list-page .item .right-content ul li {
-  font-size: 15px;
-  color: #5a5a5a;
-  margin-bottom: 10px;
+
+.service-list-page .right-content ul li {
+  font-size: 14px;
+  color: #d4d4d4;
+  margin-bottom: 8px;
   display: flex;
   align-items: flex-start;
 }
-.service-list-page .item .right-content ul li i {
+
+.service-list-page .right-content ul li i {
   color: var(--brand-color);
-  margin-right: 10px;
-  margin-top: 5px; /* Align icon better */
-}
-/* Request Service Button */
-.service-list-page .item .main-button a {
-   background-color: var(--brand-color);
-   border-color: var(--brand-color);
-   color: #fff;
-}
-.service-list-page .item .main-button a:hover {
-   background-color: #2a2a2a;
-   border-color: #2a2a2a;
+  margin-right: 8px;
+  margin-top: 5px;
 }
 
+.service-list-page .main-button a {
+  background-color: var(--brand-color);
+  color: var(--white);
+  border-radius: 30px;
+  padding: 10px 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.service-list-page .main-button a:hover {
+  background-color: var(--white);
+  color: var(--brand-color);
+}
+
+/* ===== OUR COMMITMENT SECTION ===== */
+.more-about {
+  background: #f9f9f9;
+  position: relative;
+}
+
+.more-about .left-image img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.6s ease;
+}
+
+.more-about .left-image:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top right, rgba(61, 163, 74, 0.25), rgba(0, 0, 0, 0.2));
+  border-radius: 20px;
+}
+
+/* info cards */
+.info-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(61, 163, 74, 0.25);
+}
+
+.info-card i {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.info-card h4 {
+  font-weight: 600;
+  color: #3da34a;
+  margin-bottom: 6px;
+}
+
+.info-card p {
+  color: #333;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* responsive tweaks */
+@media (max-width: 991px) {
+  .left-image img {
+    max-height: 400px;
+  }
+}
+
+
+
 /* ================================================
-   11. CLIENTS PAGE STYLES (projects.html / projects.njk)
+   CLIENTS PAGE
 ================================================ */
 .client-list-section {
   padding: 100px 0;
-  background-color: #f8f8f8;
+  background-color: var(--light-bg);
 }
-.client-list-section .section-heading h2 {
-  color: #2a2a2a;
-}
+
 .client-list-section .section-heading p {
-  color: #5a5a5a;
+  color: var(--medium-text);
 }
+
 .client-category {
-  background: #fff;
+  background: var(--white);
   padding: 30px;
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
-  height: 100%; /* Ensures columns are equal height */
-  margin-bottom: 30px; /* Spacing between rows */
+  height: 100%;
+  margin-bottom: 30px;
 }
+
 .client-category h3 {
   font-size: 22px;
-  font-weight: 700;
-  color: var(--brand-color);
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid #eee;
 }
+
 .client-category ul {
   list-style-type: none;
   padding-left: 0;
   margin-bottom: 0;
 }
+
 .client-category ul li {
-  font-size: 16px;
-  font-weight: 500;
-  color: #2a2a2a;
   margin-bottom: 15px;
-  display: flex;
-  align-items: flex-start;
-}
-.client-category ul li i {
-  color: var(--brand-color);
-  margin-right: 10px;
-  margin-top: 5px;
-  font-size: 14px;
 }
 
-/* Ensure brand color on info items on this page */
 .projects-page .more-about .info-item h4 {
   color: var(--brand-color);
 }
 
+/* ==== Shared Glassy Section Styles ==== */
+.hero-banner {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  padding: 120px 0;
+}
+.hero-banner .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+.hero-banner .content { position: relative; z-index: 2; }
 
+/* Glass Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #f4f4f4;
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(61, 163, 74, 0.4);
+}
+.glass-card ul li { margin-bottom: 6px; }
+
+/* Commitment Section */
+.commit-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+.commit-card:hover {
+  box-shadow: 0 5px 20px rgba(61, 163, 74, 0.25);
+  transform: translateY(-3px);
+}
+
+/* ===== CLIENT LIST SECTION ===== */
+.client-list-section {
+  position: relative;
+  background: #f7f9f7;
+}
+
+.client-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.client-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(61, 163, 74, 0.2);
+}
+
+.client-card h3 {
+  font-size: 1.25rem;
+  border-bottom: 2px solid #3da34a;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.client-card ul li {
+  font-size: 15px;
+  color: #333; /* ensures text visible on white background */
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.client-card ul li:hover {
+  color: #3da34a;
+}
+
+.client-card ul li i {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+
+/* Call to Action */
+.call-to-action .border-button a {
+  background: #fff;
+  color: #3da34a;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.call-to-action .border-button a:hover {
+  background: #2f853a;
+  color: #fff;
+}
 
 /* ================================================
-   MOBILE RESPONSIVENESS FIXES
-   Add this to the end of your custom.css file
+   EXPERIENCE SECTION
+================================================ */
+.experience-section {
+  background-color: #f8f9fa;
+}
+
+.experience-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card .card-title {
+  font-size: 1.05rem;
+}
+
+.experience-card p,
+.experience-card ul {
+  color: #212529 !important;
+}
+
+/* ================================================
+   UTILITIES
+================================================ */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fade-in[src] {
+  opacity: 1;
+}
+
+/* ================================================
+   RESPONSIVE DESIGN
 ================================================ */
 
-/* === SMALL MOBILE DEVICES (320px - 575px) === */
+/* Small Mobile (320px - 575px) */
 @media (max-width: 575px) {
-  
-  /* Banner Section */
   #section-1 .content-slider .slider .banner .banner-inner-wrapper h2 {
     font-size: 14px !important;
     margin-bottom: 10px;
@@ -1027,7 +1255,6 @@ body{
     font-size: 16px;
   }
   
-  /* Welcome Section */
   .visit-country .section-heading h2 {
     font-size: 24px;
     line-height: 34px;
@@ -1038,7 +1265,6 @@ body{
     line-height: 24px;
   }
   
-  /* Service Items */
   .visit-country .item {
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -1084,7 +1310,6 @@ body{
     padding: 10px 20px;
   }
   
-  /* Sidebar Map & Contact */
   .visit-country .side-bar-map {
     margin-left: 0;
     margin-top: 40px;
@@ -1104,7 +1329,6 @@ body{
     line-height: 24px;
   }
   
-  /* Call to Action */
   .call-to-action {
     padding: 50px 0;
     margin-top: 80px;
@@ -1130,7 +1354,6 @@ body{
     padding: 10px 25px;
   }
   
-  /* Footer */
   footer {
     padding: 20px 15px;
   }
@@ -1140,7 +1363,6 @@ body{
     line-height: 20px;
   }
   
-  /* Page Numbers */
   .visit-country ul.page-numbers li a {
     width: 36px;
     height: 36px;
@@ -1148,7 +1370,6 @@ body{
     font-size: 14px;
   }
   
-  /* Section Spacing */
   section {
     margin-top: 60px;
   }
@@ -1158,9 +1379,8 @@ body{
   }
 }
 
-/* === MEDIUM MOBILE DEVICES (576px - 767px) === */
+/* Medium Mobile (576px - 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
-  
   #section-1 .content-slider .slider .banner .banner-inner-wrapper h1 {
     font-size: 32px !important;
   }
@@ -1188,9 +1408,8 @@ body{
   }
 }
 
-/* === TABLET DEVICES (768px - 991px) === */
+/* Tablet (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
-  
   #section-1 .more-info {
     padding: 30px 40px;
   }
@@ -1208,9 +1427,9 @@ body{
   }
 }
 
-/* === ABOUT PAGE RESPONSIVE === */
+/* Mobile/Tablet Shared (max-767px) */
 @media (max-width: 767px) {
-  
+  /* About Page */
   .about-main-content {
     padding: 80px 0 120px;
   }
@@ -1244,11 +1463,8 @@ body{
   .more-about .info-item {
     padding: 20px;
   }
-}
-
-/* === CONTACT PAGE RESPONSIVE === */
-@media (max-width: 767px) {
   
+  /* Contact Page */
   .reservation-form {
     padding: 60px 0;
   }
@@ -1290,11 +1506,8 @@ body{
   .contact-details .info-item-card a {
     font-size: 13px;
   }
-}
-
-/* === SERVICES PAGE RESPONSIVE === */
-@media (max-width: 767px) {
   
+  /* Services Page */
   .service-list-page {
     padding: 60px 0;
   }
@@ -1302,6 +1515,11 @@ body{
   .service-list-page .item {
     padding: 20px;
     margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .service-list-page .item .right-content {
+    margin-top: 20px;
   }
   
   .service-list-page .item .right-content h4 {
@@ -1312,18 +1530,12 @@ body{
     font-size: 14px;
   }
   
-  .service-list-page .item .right-content p {
-    font-size: 14px;
-  }
-  
+  .service-list-page .item .right-content p,
   .service-list-page .item .right-content ul li {
     font-size: 14px;
   }
-}
-
-/* === TEAM PAGE RESPONSIVE === */
-@media (max-width: 767px) {
   
+  /* Team Page */
   .featured-member {
     padding: 60px 0;
   }
@@ -1359,11 +1571,8 @@ body{
   .team-grid .item .down-content h4 a {
     font-size: 18px;
   }
-}
-
-/* === BLOG PAGE RESPONSIVE === */
-@media (max-width: 767px) {
   
+  /* Blog Page */
   .blog-grid {
     padding: 60px 0;
   }
@@ -1408,11 +1617,8 @@ body{
   .blog-sidebar {
     margin-top: 40px;
   }
-}
-
-/* === CLIENTS PAGE RESPONSIVE === */
-@media (max-width: 767px) {
   
+  /* Clients Page */
   .client-list-section {
     padding: 60px 0;
   }
@@ -1429,30 +1635,23 @@ body{
   .client-category ul li {
     font-size: 14px;
   }
-}
-
-/* === GENERAL MOBILE OPTIMIZATIONS === */
-@media (max-width: 767px) {
   
-  /* Container padding */
+  /* General */
   .container {
     padding-left: 20px;
     padding-right: 20px;
   }
   
-  /* Buttons */
   .main-button a,
   .border-button a {
     font-size: 13px;
     padding: 10px 25px;
   }
   
-  /* Text button */
   .text-button a {
     font-size: 13px;
   }
   
-  /* Section headings */
   .section-heading h2 {
     font-size: 24px;
     line-height: 34px;
@@ -1463,13 +1662,11 @@ body{
     line-height: 24px;
   }
   
-  /* Images */
   img {
     max-width: 100%;
     height: auto;
   }
   
-  /* Remove horizontal overflow */
   .row {
     margin-left: -10px;
     margin-right: -10px;
@@ -1481,9 +1678,8 @@ body{
   }
 }
 
-/* === FIX HORIZONTAL SCROLLING === */
+/* Prevent Horizontal Scrolling (max-991px) */
 @media (max-width: 991px) {
-  
   body {
     overflow-x: hidden;
   }
@@ -1493,7 +1689,6 @@ body{
     padding-right: 15px;
   }
   
-  /* Ensure no elements exceed viewport */
   * {
     max-width: 100%;
   }
@@ -1502,15 +1697,20 @@ body{
     max-width: 100%;
     height: auto;
   }
+  
+  #map {
+    margin-top: 40px;
+  }
+  
+  .reservation-form .section-heading h2 {
+    font-size: 28px;
+  }
 }
 
-/* === LANDSCAPE MOBILE OPTIMIZATION === */
+/* Landscape Mobile */
 @media (max-width: 767px) and (orientation: landscape) {
-
-  /* Center content on a smaller screen */
-  body{
+  body {
     text-align: center;
-    
   }
   
   #section-1 {
@@ -1524,12 +1724,4 @@ body{
   #section-1 .more-info {
     bottom: 60px;
   }
-}
-
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-}
-.fade-in[src] {
-  opacity: 1;
 }
