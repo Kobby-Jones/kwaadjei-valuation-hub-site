@@ -1,9 +1,9 @@
 <footer class="site-footer" style="background-color: #1b3e2b; color: white; padding: 60px 0;">
   <div class="container">
-    <div class="row">
+    <div class="row gy-4">
 
       <!-- Contact Info -->
-      <div class="col-lg-5 col-md-12 col-sm-12 mb-4">
+      <div class="col-lg-5 col-md-12 col-sm-12">
         <h5>{{ metadata.titleShort }}</h5>
         <p style="line-height: 1.8;">
           P.O.Box 2014, Sunyani<br>
@@ -17,7 +17,7 @@
       </div>
 
       <!-- Quick Links -->
-      <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+      <div class="col-lg-4 col-md-6 col-sm-6">
         <h5>Quick Links</h5>
         <ul class="list-unstyled footer-links">
           <li><a href="/services/">Our Services</a></li>
@@ -28,11 +28,11 @@
       </div>
 
       <!-- Social Links -->
-      <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+      <div class="col-lg-3 col-md-6 col-sm-6">
         <h5>Follow Us</h5>
         <ul class="list-unstyled d-flex social-links">
-          <li class="me-3"><a href="#">LinkedIn</a></li>
-          <li class="me-3"><a href="#">Facebook</a></li>
+          <li class="me-3"><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li class="me-3"><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
         </ul>
       </div>
 
@@ -54,14 +54,21 @@
 
 <style>
 /* Footer Styling */
+.site-footer {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
 .site-footer h5 {
   color: #fff;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .site-footer a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 .site-footer a:hover {
@@ -72,11 +79,31 @@
   line-height: 2;
 }
 
-.social-links li a {
-  font-weight: bold;
+.social-links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-.footer-link {
-  color: #fff;
+.social-links li a {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-bottom {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .social-links {
+    justify-content: start;
+  }
+  .footer-bottom {
+    text-align: center;
+  }
 }
 </style>
