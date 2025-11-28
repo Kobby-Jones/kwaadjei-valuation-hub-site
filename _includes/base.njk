@@ -41,7 +41,8 @@
     <link rel="stylesheet" href="{{ '/assets/css/animate.css' | url }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+    <!-- NEW: Modern Custom Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/modern-custom.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">
 </head>
 
@@ -67,7 +68,9 @@
     <script src="{{ '/assets/js/tabs.js' | url }}"></script>
     <script src="{{ '/assets/js/popup.js' | url }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{ '/assets/js/custom.js' | url }}"></script>
+     <script src="{{ '/assets/js/custom.js' | url }}"></script>
+    <!-- NEW: Modern Interactions -->
+    <!-- <script src="{{ '/assets/js/modern-interactions.js' | url }}"></script> -->   
     
 
     <!-- Page-specific scripts -->
@@ -75,5 +78,32 @@
       {{ pageScripts | safe }}
     {% endif %}
 
+<script>
+$(document).ready(function() {
+  // Mobile menu toggle
+  $('.menu-trigger').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+    $('.nav').toggleClass('active');
+    $('body').toggleClass('menu-open');
+  });
+  
+  // Close menu when clicking outside
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.main-nav').length && $('.nav').hasClass('active')) {
+      $('.menu-trigger, .nav').removeClass('active');
+      $('body').removeClass('menu-open');
+    }
+  });
+  
+  // Close menu when clicking a link
+  $('.nav li a').on('click', function() {
+    if ($(window).width() < 992) {
+      $('.menu-trigger, .nav').removeClass('active');
+      $('body').removeClass('menu-open');
+    }
+  });
+});
+</script>
   </body>
 </html>

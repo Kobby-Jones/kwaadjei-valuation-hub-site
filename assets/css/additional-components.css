@@ -1,0 +1,857 @@
+/* ========================================
+   ADDITIONAL COMPONENT STYLES
+   Kwaadjei Valuation Hub
+   ======================================== */
+
+/* ============================================
+   1. OVERLAY & BACKDROP STYLES
+   ============================================ */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(27, 94, 32, 0.95) 0%, rgba(46, 125, 50, 0.9) 100%);
+  z-index: 1;
+}
+
+.blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+/* ============================================
+   2. INFO CARDS & FEATURE BOXES
+   ============================================ */
+.info-card,
+.commit-card,
+.info-item-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #f5f5f5;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.info-card:hover,
+.commit-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.info-card i,
+.commit-card i {
+  font-size: 2.5rem;
+  color: #1b5e20;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.info-card h4,
+.commit-card h5 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1b5e20;
+  margin-bottom: 0.5rem;
+}
+
+.info-card p,
+.commit-card p {
+  font-size: 0.9375rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.info-item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.info-item-card:last-child {
+  margin-bottom: 0;
+}
+
+.info-item-card i {
+  font-size: 1.5rem;
+  color: #4caf50;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.info-item-card div h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b5e20;
+  margin-bottom: 0.25rem;
+}
+
+.info-item-card div p,
+.info-item-card div a {
+  font-size: 0.9375rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ============================================
+   3. IMAGE OVERLAY STYLES
+   ============================================ */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.left-image:hover .image-overlay {
+  opacity: 1;
+}
+
+/* ============================================
+   4. CATEGORY & TAG STYLES
+   ============================================ */
+.category,
+.post-category {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   5. GLASS CARD EFFECT
+   ============================================ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   6. STATS & COUNTER SECTION
+   ============================================ */
+.stats-section {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  padding: 4rem 0;
+  color: white;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.stat-item .stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.stat-item .stat-label {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   7. TIMELINE STYLES (FOR ABOUT/HISTORY)
+   ============================================ */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #1b5e20 0%, #4caf50 100%);
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-content {
+  width: 45%;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.timeline-date {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1b5e20;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+/* ============================================
+   8. TESTIMONIAL STYLES
+   ============================================ */
+.testimonial-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 6rem;
+  color: #e8f5e9;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 1.125rem;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1b5e20;
+}
+
+.testimonial-author-info h5 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b5e20;
+}
+
+.testimonial-author-info p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* ============================================
+   9. PRICING TABLE (IF NEEDED)
+   ============================================ */
+.pricing-card {
+  background: white;
+  border: 2px solid #f5f5f5;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pricing-card.featured {
+  border-color: #1b5e20;
+  box-shadow: 0 8px 24px rgba(27, 94, 32, 0.15);
+  transform: scale(1.05);
+}
+
+.pricing-card:hover {
+  border-color: #4caf50;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.pricing-badge {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.pricing-price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1b5e20;
+  margin: 1rem 0;
+  line-height: 1;
+}
+
+.pricing-price span {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.pricing-features li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f5f5f5;
+  color: #333;
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-features li i {
+  color: #4caf50;
+  margin-right: 0.5rem;
+}
+
+/* ============================================
+   10. FAQ / ACCORDION STYLES
+   ============================================ */
+.faq-section {
+  background: #f8faf9;
+  padding: 4rem 0;
+}
+
+.accordion-item {
+  background: white;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #f8faf9;
+}
+
+.accordion-item.active .accordion-header {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.accordion-header h5 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.accordion-item.active .accordion-header h5 {
+  color: #1b5e20;
+}
+
+.accordion-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #1b5e20;
+  color: white;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg);
+  background: #4caf50;
+}
+
+.accordion-content {
+  display: none;
+  padding: 0 1.5rem 1.5rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ============================================
+   11. BREADCRUMB
+   ============================================ */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  list-style: none;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumb li::after {
+  content: '/';
+  color: #999;
+}
+
+.breadcrumb li:last-child::after {
+  display: none;
+}
+
+.breadcrumb a {
+  color: #1b5e20;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #4caf50;
+}
+
+.breadcrumb .active {
+  color: #666;
+}
+
+/* ============================================
+   12. PAGINATION
+   ============================================ */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 0;
+  list-style: none;
+  margin: 0;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination a,
+.pagination span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  border: 2px solid #f5f5f5;
+  border-radius: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  border-color: #1b5e20;
+  background: #1b5e20;
+  color: white;
+}
+
+.pagination .active a,
+.pagination .active span {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  border-color: #1b5e20;
+  color: white;
+}
+
+/* ============================================
+   13. BADGE & LABELS
+   ============================================ */
+.badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.375rem;
+}
+
+.badge-primary {
+  background: #1b5e20;
+  color: white;
+}
+
+.badge-success {
+  background: #4caf50;
+  color: white;
+}
+
+.badge-light {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.badge-outline {
+  background: transparent;
+  border: 2px solid #1b5e20;
+  color: #1b5e20;
+}
+
+/* ============================================
+   14. ALERT / NOTIFICATION
+   ============================================ */
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid;
+}
+
+.alert-success {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #1b5e20;
+}
+
+.alert-info {
+  background: #e3f2fd;
+  border-color: #2196f3;
+  color: #0d47a1;
+}
+
+.alert-warning {
+  background: #fff3e0;
+  border-color: #ff9800;
+  color: #e65100;
+}
+
+.alert-error {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #c62828;
+}
+
+/* ============================================
+   15. PROGRESS BAR
+   ============================================ */
+.progress {
+  height: 8px;
+  background: #f5f5f5;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #1b5e20 0%, #4caf50 100%);
+  border-radius: 1rem;
+  transition: width 1s ease;
+}
+
+/* ============================================
+   16. SOCIAL SHARE BUTTONS
+   ============================================ */
+.social-share {
+  display: flex;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.social-share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.125rem;
+}
+
+.social-share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-share-btn.facebook {
+  background: #1877f2;
+}
+
+.social-share-btn.twitter {
+  background: #1da1f2;
+}
+
+.social-share-btn.linkedin {
+  background: #0a66c2;
+}
+
+.social-share-btn.whatsapp {
+  background: #25d366;
+}
+
+/* ============================================
+   17. LOADING SPINNER
+   ============================================ */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f5f5f5;
+  border-top: 4px solid #1b5e20;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   18. MODAL / POPUP (BASIC)
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #1b5e20;
+}
+
+/* ============================================
+   19. VIDEO RESPONSIVE WRAPPER
+   ============================================ */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* ============================================
+   20. UTILITY CLASSES
+   ============================================ */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.user-select-none {
+  user-select: none;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.mw-100 {
+  max-width: 100% !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.font-italic {
+  font-style: italic !important;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 1px !important;
+}
+
+.letter-spacing-2 {
+  letter-spacing: 2px !important;
+}
+
+.line-height-1 {
+  line-height: 1 !important;
+}
+
+.line-height-base {
+  line-height: 1.7 !important;
+}
+
+.opacity-50 {
+  opacity: 0.5 !important;
+}
+
+.opacity-75 {
+  opacity: 0.75 !important;
+}
+
+/* ============================================
+   21. PRINT STYLES
+   ============================================ */
+@media print {
+  .no-print,
+  .header-area,
+  .footer,
+  .call-to-action,
+  .btn,
+  .main-button,
+  .border-button,
+  .social-share,
+  .back-to-top {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .card,
+  .service-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

@@ -866,19 +866,19 @@ Banner Style
   transition: 0.3s;
 }
 #section-1 .content-slider .slider #top-banner-1 {
-  background: url('../images/property_valuation_1.jpg') no-repeat center center;
+  background: url('../images/home-hero-bg-1.jpg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-2 {
-  background: url('../images/property_valuation_2.jpg') no-repeat center center;
+  background: url('../images/home-hero-bg-2.jpg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-3 {
-  background: url('../images/property_valuation_3.jpg') no-repeat center center;
+  background: url('../images/home-hero-bg-3.jpg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-4 {
-  background: url('../images/property_valuation_4.jpg') no-repeat center center;
+  background: url('../images/home-hero-bg-4.jpg') no-repeat center center;
   background-size: cover;
 }
 
