@@ -2450,30 +2450,716 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* Optional: If you want a white navbar instead */
-/*
-.header-area {
-  background-color: #ffffff !important;
+/* =========================================
+   GALLERY PAGE STYLING 
+   ========================================= */
+.gallery-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
 }
 
-.logo .brand-text {
-  color: #1b5e20 !important;
+/* --- Gallery Controls --- */
+.gallery-controls {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
 }
 
-.nav li a {
-  color: #333333 !important;
+.search-view-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
-.nav li a:hover,
-.nav li a.active {
-  color: #1b5e20 !important;
+.search-bar {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
 }
 
-.nav li a::after {
-  background: #1b5e20 !important;
+.search-input {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
 
-.menu-trigger span {
-  background: #1b5e20 !important;
+.search-input:focus {
+    outline: none;
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(61, 163, 74, 0.1);
 }
-*/
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 8px;
+    background: #f5f5f5;
+    padding: 4px;
+    border-radius: 25px;
+}
+
+.view-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.view-btn:hover {
+    background: rgba(61, 163, 74, 0.1);
+    color: var(--brand-color);
+}
+
+.view-btn.active {
+    background: var(--brand-color);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(61, 163, 74, 0.3);
+}
+
+/* --- Filter Navigation --- */
+.filters {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brand-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filters ul li {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-text);
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.filters ul li:hover {
+    background-color: #e5e5e5;
+    color: var(--brand-color);
+    transform: translateY(-2px);
+}
+
+.filters ul li.active {
+    background-color: var(--brand-color);
+    color: var(--white);
+    border-color: var(--brand-color);
+    box-shadow: 0 2px 10px rgba(61, 163, 74, 0.3);
+}
+
+/* --- Gallery Stats --- */
+.gallery-stats {
+    text-align: center;
+    margin: 20px 0 30px;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.gallery-stats span {
+    color: var(--brand-color);
+    font-weight: 700;
+}
+
+/* --- Gallery Grid Items --- */
+.gallery-grid {
+    margin: 0 auto;
+    position: relative;
+}
+
+.gallery-grid .col-lg-4, 
+.gallery-grid .col-md-6 {
+    float: left; 
+    padding: 15px;
+}
+
+/* Gallery Item Wrapper for animations */
+.gallery-item-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item-wrapper:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item-wrapper:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item-wrapper:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item-wrapper:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item-wrapper:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item-wrapper:nth-child(6) { animation-delay: 0.6s; }
+
+/* Gallery Item Styling */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(61, 163, 74, 0.25);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Overlay Icons */
+.overlay-icons {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.gallery-item:hover .overlay-icons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    color: var(--dark-text);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.icon-btn:hover {
+    background: var(--brand-color);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* Caption Overlay */
+.gallery-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+    color: var(--white);
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.gallery-item:hover .caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.3));
+}
+
+.gallery-item .caption h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.gallery-item .caption span {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--brand-color);
+}
+
+/* --- List View Mode --- */
+.gallery-grid.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gallery-grid.list-view .col-lg-4,
+.gallery-grid.list-view .col-md-6 {
+    float: none;
+    width: 100%;
+    padding: 0;
+}
+
+.gallery-grid.list-view .gallery-item {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.gallery-grid.list-view .gallery-item img {
+    width: 350px;
+    height: 220px;
+    flex-shrink: 0;
+}
+
+.gallery-grid.list-view .caption {
+    position: static;
+    background: var(--white);
+    color: var(--dark-text);
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gallery-grid.list-view .caption h4 {
+    color: var(--dark-text);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.gallery-grid.list-view .caption span {
+    color: #666;
+    font-size: 15px;
+}
+
+/* --- Lightbox Modal --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lightbox-content {
+    max-width: 1200px;
+    max-height: 90vh;
+    position: relative;
+    animation: zoomIn 0.3s ease;
+    text-align: center;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    text-align: center;
+    color: var(--white);
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.lightbox-caption h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.lightbox-caption p {
+    font-size: 16px;
+    color: var(--brand-color);
+    font-weight: 500;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-text);
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    background: var(--brand-color);
+    color: var(--white);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-text);
+    z-index: 10000;
+}
+
+.lightbox-nav:hover {
+    background: var(--brand-color);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+    left: 30px;
+}
+
+.lightbox-next {
+    right: 30px;
+}
+
+/* --- No Results State --- */
+.no-results {
+    text-align: center;
+    padding: 80px 20px;
+    color: #999;
+}
+
+.no-results svg {
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.no-results h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--dark-text);
+}
+
+.no-results p {
+    font-size: 16px;
+}
+
+/* --- Hidden State --- */
+.gallery-item-wrapper.hidden {
+    display: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 991px) {
+    .gallery-grid.list-view .gallery-item {
+        flex-direction: column;
+    }
+    
+    .gallery-grid.list-view .gallery-item img {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-view-wrapper {
+        flex-direction: column;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+    
+    .view-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .lightbox-close,
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .lightbox-prev {
+        left: 15px;
+    }
+    
+    .lightbox-next {
+        right: 15px;
+    }
+    
+    .lightbox-caption h3 {
+        font-size: 20px;
+    }
+    
+    .lightbox-caption p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .filters ul {
+        gap: 8px;
+    }
+    
+    .filters ul li {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .gallery-item img {
+        height: 220px;
+    }
+}
+/* Styling for Brevo Form Messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.alert.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* =========================================
+   MISSION & VISION SECTION STYLING
+   ========================================= */
+.mission-vision-section {
+    background-color: var(--white);
+    padding: 60px 0;
+}
+
+.mission-vision-card {
+    background-color: var(--light-bg); /* Use light gray background */
+    border-radius: var(--border-radius);
+    padding: 30px;
+    height: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-top: 5px solid var(--brand-color);
+}
+
+.mission-vision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(61, 163, 74, 0.2);
+    background-color: #f0f0f0;
+}
+
+.mission-vision-card i {
+    font-size: 32px;
+    color: var(--brand-color);
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.mission-vision-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+.mission-vision-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--medium-text);
+    margin-bottom: 0;
+}
+
+/* =========================================
+   HERO SECTION OVERLAY FIX
+   ========================================= */
+
+/* 1. Neutralize the heavy blur defined in the original template CSS */
+.blur-bg {
+    /* Remove the problematic blur filter entirely */
+    filter: none !important;
+    backdrop-filter: none !important;
+    background: transparent !important;
+    z-index: 0 !important;
+}
+
+/* 2. Standardize a dark overlay for all generic hero banners */
+/* This will apply to pages like Blog, Gallery, etc., that use .page-heading */
+.page-heading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Standard dark overlay */
+    z-index: 1;
+}
+
+/* 3. Ensure the text content is above the overlay */
+.page-heading .container,
+.about-main-content .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* 4. Ensure the background image for about-main-content is respected */
+.about-main-content {
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+/* 5. Create the standard overlay for about-main-content if we remove the blur-bg div */
+.about-main-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Standard dark overlay */
+    z-index: 1;
+}
+
+/* =========================================
+   UNIQUE GALLERY HERO BANNER FIX
+   (Lighter Overlay, No Blur on Fieldwork page)
+   ========================================= */
+
+/* 1. Define the custom overlay using the unique class */
+.page-heading.gallery-hero-fix::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Apply a lighter gradient overlay to maintain image clarity */
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0.3) 0%, /* Lighter dark shade */
+        rgba(61, 163, 74, 0.15) 100% /* Very subtle green tint */
+    ) !important;
+    z-index: 1;
+    /* Explicitly remove any inherited blur filter to ensure image sharpness */
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* 2. Ensure text content remains visible above the custom overlay */
+.page-heading.gallery-hero-fix .container {
+    position: relative;
+    z-index: 2; 
+}
+
+/* 3. Ensure the base styling for the container is correct */
+.page-heading.gallery-hero-fix {
+    /* Inherits padding and text alignment from .page-heading */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

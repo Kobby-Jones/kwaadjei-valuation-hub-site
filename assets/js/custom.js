@@ -405,4 +405,258 @@ document.addEventListener('DOMContentLoaded', function() {
   
   });
 
-  
+   // Gallery Enhanced Functionality
+(function() {
+    'use strict';
+
+    // Variables
+    let currentFilter = '*';
+    let currentView = 'grid';
+    let currentLightboxIndex = 0;
+    let allItems = [];
+    let visibleItems = [];
+
+    // DOM Elements
+    const galleryGrid = document.getElementById('galleryGrid');
+    const searchInput = document.getElementById('gallerySearch');
+    const filterButtons = document.querySelectorAll('.filters ul li');
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxSubtitle = document.getElementById('lightboxSubtitle');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const noResults = document.getElementById('noResults');
+    const visibleCount = document.getElementById('visibleCount');
+    const totalCount = document.getElementById('totalCount');
+
+    // Initialize
+    function init() {
+        collectGalleryItems();
+        updateStats();
+        attachEventListeners();
+    }
+
+    // Collect all gallery items
+    function collectGalleryItems() {
+        const items = galleryGrid.querySelectorAll('[data-category]');
+        allItems = Array.from(items).map((item, index) => {
+            const wrapper = item.querySelector('.gallery-item-wrapper');
+            const img = item.querySelector('img');
+            return {
+                element: item,
+                wrapper: wrapper,
+                category: item.dataset.category,
+                title: item.dataset.title,
+                subtitle: item.dataset.subtitle,
+                image: img ? img.src : '',
+                index: index
+            };
+        });
+    }
+
+    // Filter and Search
+    function filterItems() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        
+        visibleItems = allItems.filter(item => {
+            // Category filter
+            const matchesCategory = currentFilter === '*' || item.category === currentFilter.replace('.', '');
+            
+            // Search filter
+            const matchesSearch = !searchTerm || 
+                item.title.toLowerCase().includes(searchTerm) ||
+                item.subtitle.toLowerCase().includes(searchTerm) ||
+                item.category.toLowerCase().includes(searchTerm);
+            
+            return matchesCategory && matchesSearch;
+        });
+
+        // Update visibility
+        allItems.forEach(item => {
+            if (visibleItems.includes(item)) {
+                item.element.style.display = '';
+                item.wrapper.classList.remove('hidden');
+                // Reset animation
+                item.wrapper.style.animation = 'none';
+                setTimeout(() => {
+                    item.wrapper.style.animation = '';
+                }, 10);
+            } else {
+                item.element.style.display = 'none';
+                item.wrapper.classList.add('hidden');
+            }
+        });
+
+        updateStats();
+        
+        // Show/hide no results message
+        if (visibleItems.length === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    }
+
+    // Update stats counter
+    function updateStats() {
+        if (visibleCount && totalCount) {
+            visibleCount.textContent = visibleItems.length;
+            totalCount.textContent = allItems.length;
+        }
+    }
+
+    // Switch view mode
+    function switchView(view) {
+        currentView = view;
+        
+        if (view === 'list') {
+            galleryGrid.classList.add('list-view');
+        } else {
+            galleryGrid.classList.remove('list-view');
+        }
+    }
+
+    // Open lightbox
+    function openLightbox(index) {
+        if (visibleItems.length === 0) return;
+        
+        currentLightboxIndex = index;
+        const item = visibleItems[currentLightboxIndex];
+        
+        lightboxImage.src = item.image;
+        lightboxImage.alt = item.title;
+        lightboxTitle.textContent = item.title;
+        lightboxSubtitle.textContent = item.subtitle;
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Navigate lightbox
+    function navigateLightbox(direction) {
+        currentLightboxIndex += direction;
+        
+        if (currentLightboxIndex < 0) {
+            currentLightboxIndex = visibleItems.length - 1;
+        } else if (currentLightboxIndex >= visibleItems.length) {
+            currentLightboxIndex = 0;
+        }
+        
+        const item = visibleItems[currentLightboxIndex];
+        lightboxImage.src = item.image;
+        lightboxImage.alt = item.title;
+        lightboxTitle.textContent = item.title;
+        lightboxSubtitle.textContent = item.subtitle;
+    }
+
+    // Attach Event Listeners
+    function attachEventListeners() {
+        // Filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                filterItems();
+            });
+        });
+
+        // View toggle buttons
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                viewButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                switchView(this.dataset.view);
+            });
+        });
+
+        // Search input
+        if (searchInput) {
+            searchInput.addEventListener('input', filterItems);
+        }
+
+        // Zoom buttons (delegated event)
+        galleryGrid.addEventListener('click', function(e) {
+            const zoomBtn = e.target.closest('.zoom-btn');
+            if (zoomBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const galleryItem = zoomBtn.closest('[data-category]');
+                const index = visibleItems.findIndex(item => item.element === galleryItem);
+                if (index !== -1) {
+                    openLightbox(index);
+                }
+            }
+        });
+
+        // Gallery item click (alternative to zoom button)
+        galleryGrid.addEventListener('click', function(e) {
+            const galleryItem = e.target.closest('.gallery-item');
+            if (galleryItem && !e.target.closest('.zoom-btn')) {
+                const parentItem = galleryItem.closest('[data-category]');
+                const index = visibleItems.findIndex(item => item.element === parentItem);
+                if (index !== -1) {
+                    openLightbox(index);
+                }
+            }
+        });
+
+        // Lightbox controls
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        if (lightboxPrev) {
+            lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+        }
+
+        if (lightboxNext) {
+            lightboxNext.addEventListener('click', () => navigateLightbox(1));
+        }
+
+        // Close lightbox on background click
+        if (lightbox) {
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    navigateLightbox(-1);
+                    break;
+                case 'ArrowRight':
+                    navigateLightbox(1);
+                    break;
+            }
+        });
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();
+
+
