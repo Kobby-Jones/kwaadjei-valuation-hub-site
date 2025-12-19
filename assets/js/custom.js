@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Run this dynamic section only on agent details pages
   if (!window.location.pathname.includes('agent-details')) {
-    return; // ⛔ Stop if we're not on the agent page
+    return; // Stop if we're not on the agent page
   }
 
     // --- 1. AGENT DATABASE ---
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
         bio: "Surv. Afrane Boateng John is a seasoned real estate and education management professional with a strong track record in leadership, development, and institutional governance. He joined the Ghana Institution of Surveyors as a Professional Member of the Valuation and Estate Surveying Division in 2020. He holds a Bachelor of Science degree in Real Estate from the Kwame Nkrumah University of Science and Technology (KNUST) and an MPhil in Educational Administration and Management from Catholic University, Ghana. Surv. A.B John has served as a Valuer and Investment Analyst at Kwaadjei Valuation Hub since 2020. He brings a deep understanding of real estate development, investment appraisal methods, market feasibility research and property/asset management. His work as a valuer and acquisition expert has involved determining fair and equitable values for property acquisitions, judicial settlement, negotiation, development, and investment projects. He has successfully spearheaded real estate development projects and acquisitions across the country, ensuring value for money for investors and other stakeholders. Surv. A.B John brings both technical expertise and strategic insight into the real estate and education sectors. Driven by a passion to be an effective steward of resources and spreading innovative goodness, he serves as the Director of JL Hubs, a forward-thinking Startup Hub and Co-working space, and also serves Lawrence Senior High School - Sunyani as Deputy Director, assisting in its academic and administrative advancement. He is also the founder of Knowhouse Ltd., an investment management and development company. Surv. A.B John is passionate about youth development, capacity building, and transforming spaces, both physical and intellectual, into opportunities for growth.",
         expertise: ["Property Valuation", "Plant & Machinery", "Compensation Assessment", "Mortgage Valuation"],
         phone: "0545856793",
-        email: "johnlawrencegh@gmail.com"
+        email: "kwaadjeivaluationhub@gmail.com"
       },
       'mandy': {
         name: "Miss. Mandy Obiri Yeboah",
@@ -346,7 +346,24 @@ document.addEventListener('DOMContentLoaded', function() {
         expertise: ["Property Inspection", "Valuation Reporting", "Market Analysis", "Construction Assessment"],
         phone: "0552305977",
         email: "kwaadjeivaluationhub@gmail.com"
-      }
+      },
+      'cobbina': {
+        name: "Mr. Cobbina Emmanuel",
+        title: "BSc Computer Science",
+        role: "IT Support & Software Systems Engineer",
+        image: "/assets/images/cobbina.png",
+        bio: "Cobbina Emmanuel is the IT Support and Software Systems Engineer at Kwaadjei Valuation Hub, responsible for designing, maintaining, and supporting the firm’s technology-driven operations. He plays a central role in ensuring that all digital systems, software tools, and IT infrastructure function reliably, securely, and efficiently to support valuation, administrative, and client-facing activities. His responsibilities span end-user IT support, systems administration, and software engineering, enabling the firm to operate with minimal downtime and improved digital efficiency. He manages office computer systems, internal networks, user access, data backups, and security controls, while providing hands-on technical support to staff across all departments. In addition to infrastructure support, he applies strong software engineering expertise to the development, maintenance, and optimization of the firm’s website and internal digital platforms. He works with modern web technologies to improve system performance, usability, and reliability, and supports the integration of digital workflows that streamline operations and reduce manual processes. His experience with backend systems, APIs, databases, and cloud-based services enables him to support scalable and secure digital solutions aligned with the firm’s long-term growth. He also contributes to system automation, deployment, monitoring, and troubleshooting, ensuring business-critical applications remain available and responsive. With a solid foundation in computer science and practical experience in full-stack development, cloud infrastructure, and DevOps practices, Cobbina Emmanuel brings a problem-solving mindset and technical leadership that strengthens the firm’s digital presence, data integrity, and overall operational resilience.",
+
+        expertise: [
+            "IT Support & Troubleshooting",
+            "Software Development & System Maintenance",
+            "Website & Internal Application Support",
+            "Data Management, Security & Automation"
+        ],
+        phone: "0598738535",
+        email: "cobbina1.emmanuel@gmail.com"
+        }
+
     };
   
     // --- 2. GET AGENT ID FROM URL ---
