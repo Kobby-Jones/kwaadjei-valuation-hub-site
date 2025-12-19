@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kwaadjeivaluationhub.netlify.app/sitemap.xml
+Sitemap: https://kwaadjeivaluation.com/sitemap.xml
