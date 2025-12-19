@@ -301,8 +301,8 @@ document.addEventListener('DOMContentLoaded', function() {
         name: "Surv. Jonas Kwame Adjei",
         title: "MGhIS, MSc, BSc",
         role: "Lead Valuer & Estate Surveyor",
-        image: "/assets/images/team-member-01.jpg",
-        bio: "Surv. Jonas Kwame Adjei, a dedicated and results-oriented professional with extensive expertise in property valuation, compensation assessment, land management, real estate brokerage, and impact assessment. Over the course of his career, he has developed a strong reputation for delivering accurate, transparent, and ethically sound professional services that balance the interests of clients, communities, and regulatory authorities. His work as a valuer and compensation assessment expert involved determining fair and equitable compensation for land acquisition, resettlement, and development projects. He brings a deep understanding of land tenure systems, customary rights, and statutory frameworks, ensuring that all assessments are compliant with national laws and international best practices. In addition, his experience as a land management and real estate professional has equipped him with practical knowledge of property markets, spatial planning, and land administration processes. He has successfully facilitated real estate transactions and brokerage services that uphold integrity and efficiency, while fostering sustainable land use and investment decisions. As an impact assessment and mining compensation consultant, He has contributed to several multidisciplinary projects assessing environmental, social, and economic impacts of development initiatives. He specializes in conducting field investigations, stakeholder consultations, and valuation of affected assets, ensuring that mitigation and compensation measures are just, inclusive, and sustainable. Driven by a passion for professional excellence, He continuously seek to expand his technical capacity through research, collaboration, and innovation. He is committed to applying his expertise to support equitable development, sustainable land management, and responsible resource use that enhances livelihoods and community resilience. Surv. Jonas Kwame Adjei is a professional member of the Ghana Institution of Surveyors. He holds a BSc. Land Economy from Kwame Nkrumah University of Science and Technology,MSc Real Estate also from Kwame Nkrumah University of Science and Technology and currently pursuing MSc. Sustainable Mining from the University of Energy and Natural Resources, Sunyani And the Managing Director and founder of KWAADAJEI VALUATION HUB which has been in operation for over a decade now.",
+        image: "/assets/images/kwaadjei.png",
+        bio: "Surv. Jonas Kwame Adjei, a dedicated and results-oriented professional with extensive expertise in property valuation, compensation assessment, land management, real estate brokerage, and impact assessment. Over the course of his career, he has developed a strong reputation for delivering accurate, transparent, and ethically sound professional services that balance the interests of clients, communities, and regulatory authorities. His work as a valuer and compensation assessment expert involved determining fair and equitable compensation for land acquisition, resettlement, and development projects. He brings a deep understanding of land tenure systems, customary rights, and statutory frameworks, ensuring that all assessments are compliant with national laws and international best practices. In addition, his experience as a land management and real estate professional has equipped him with practical knowledge of property markets, spatial planning, and land administration processes. He has successfully facilitated real estate transactions and brokerage services that uphold integrity and efficiency, while fostering sustainable land use and investment decisions. As an impact assessment and mining compensation consultant, He has contributed to several multidisciplinary projects assessing environmental, social, and economic impacts of development initiatives. He specializes in conducting field investigations, stakeholder consultations, and valuation of affected assets, ensuring that mitigation and compensation measures are just, inclusive, and sustainable. Driven by a passion for professional excellence, He continuously seek to expand his technical capacity through research, collaboration, and innovation. He is committed to applying his expertise to support equitable development, sustainable land management, and responsible resource use that enhances livelihoods and community resilience. Surv. Jonas Kwame Adjei is a professional member of the Ghana Institution of Surveyors. He holds a BSc. Land Economy from Kwame Nkrumah University of Science and Technology,MSc Real Estate also from Kwame Nkrumah University of Science and Technology and currently pursuing MSc. Sustainable Mining from the University of Energy and Natural Resources, Sunyani and the Managing Director and founder of KWAADAJEI VALUATION HUB which has been in operation for over a decade now.",
         expertise: ["Valuation & Appraisal", "Estate Surveying", "Professional Standards", "Team Leadership"],
         phone: "0209023083",
         email: "kwaadjeivaluationhub@gmail.com"
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
         email: "kwaadjeivaluationhub@gmail.com"
       },
       'mandy': {
-        name: "Miss. Mandy Obiri Yeboah",
+        name: "Miss Mandy Obiri Yeboah",
         title: "BSc",
         role: "Assistant Valuer & Research Analyst",
         image: "/assets/images/mandy.png",
@@ -328,11 +328,11 @@ document.addEventListener('DOMContentLoaded', function() {
         email: "kwaadjeivaluationhub@gmail.com"
       },
       'bernice': {
-        name: "Miss. Bernice Asare",
+        name: "Miss Bernice Asare",
         title: "HND",
         role: "Secretarial & Administrative Support",
         image: "/assets/images/bernice.png",
-        bio: "Miss. Bernice Asare serves as the Secretary of Kwaadjei Valuation Hub, where she provides administrative, organizational and clerical support to ensure the smooth and efficient running of the firm’s operations. She holds a Diploma in a Secretarial Program from the Standard Institute of Business & Computing (SIBCO), Sunyani. With strong skills in office management, correspondence, client relations and office software. Bernice is recognized for her professionalism, attention to detail and commitment to excellence in service delivery. Her proactive approach and organizational skills contribute significantly to the firm’s productivity and client satisfaction. She has a keen interest in office administration, business communication and organizational development. She aspires to advance her career in corporate administration and management, where she can continue to support institutional growth and operational excellence.",
+        bio: "Miss Bernice Asare serves as the Secretary of Kwaadjei Valuation Hub, where she provides administrative, organizational and clerical support to ensure the smooth and efficient running of the firm’s operations. She holds a Diploma in a Secretarial Program from the Standard Institute of Business & Computing (SIBCO), Sunyani. With strong skills in office management, correspondence, client relations and office software. Bernice is recognized for her professionalism, attention to detail and commitment to excellence in service delivery. Her proactive approach and organizational skills contribute significantly to the firm’s productivity and client satisfaction. She has a keen interest in office administration, business communication and organizational development. She aspires to advance her career in corporate administration and management, where she can continue to support institutional growth and operational excellence.",
         expertise: ["Office Management", "Client Communication", "Scheduling & Coordination", "Document Preparation"],
         phone: "0209023083",
         email: "kwaadjeivaluationhub@gmail.com"
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function() {
         email: "kwaadjeivaluationhub@gmail.com"
       },
       'cobbina': {
-        name: "Mr. Cobbina Emmanuel",
+        name: "Cobbina Emmanuel",
         title: "BSc Computer Science",
         role: "IT Support & Software Systems Engineer",
         image: "/assets/images/cobbina.png",
