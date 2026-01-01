@@ -14,5 +14,8 @@ A production business website built with a static site generator, focusing on pe
 - Accessible, responsive layouts
 - Deployed and used by a real business
 
+## Live Demo
+- [Visit Here](https://kwaadjeivaluation.com/)
+
 ## Why This Project Matters
 This project demonstrates strong frontend fundamentals, performance optimization, and the ability to choose the right tool for the problem.
