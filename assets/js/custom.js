@@ -9,9 +9,14 @@
     "use strict";
 
     // Page loading animation
-    $(window).on('load', function() {
+    // Hide the preloader as soon as the DOM is ready instead of waiting for
+    // every image and external resource (window load). A safety timeout
+    // guarantees it is never stuck on screen even if something stalls.
+    function hidePreloader() {
         $('#js-preloader').addClass('loaded');
-    });
+    }
+    $(document).ready(hidePreloader);
+    setTimeout(hidePreloader, 2000);
 
     // // WOW JS
     // $(window).on('load', function (){
@@ -676,5 +681,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 })();
-
-

@@ -32,6 +32,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
+    <!-- Speed up the TLS/DNS handshake for the CDNs we still use -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <link href="{{ '/vendor/bootstrap/css/bootstrap.min.css' | url }}" rel="stylesheet">
 
@@ -39,7 +42,6 @@
     <link rel="stylesheet" href="{{ '/assets/css/templatemo-woox-travel.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/owl.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/animate.css' | url }}">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- NEW: Modern Custom Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/modern-custom.css' | url }}">
@@ -58,17 +60,15 @@
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
-    <script src="{{ '/vendor/jquery/jquery.min.js' | url }}"></script>
-    <script src="{{ '/vendor/bootstrap/js/bootstrap.min.js' | url }}"></script>
+    <script defer src="{{ '/vendor/jquery/jquery.min.js' | url }}"></script>
+    <script defer src="{{ '/vendor/bootstrap/js/bootstrap.min.js' | url }}"></script>
 
     <!-- Template JavaScript Files -->
-    <script src="{{ '/assets/js/isotope.min.js' | url }}"></script>
-    <script src="{{ '/assets/js/owl-carousel.js' | url }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="{{ '/assets/js/tabs.js' | url }}"></script>
-    <script src="{{ '/assets/js/popup.js' | url }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-     <script src="{{ '/assets/js/custom.js' | url }}"></script>
+    <script defer src="{{ '/assets/js/isotope.min.js' | url }}"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script defer src="{{ '/assets/js/popup.js' | url }}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="{{ '/assets/js/custom.js' | url }}"></script>
     <!-- NEW: Modern Interactions -->
     <!-- <script src="{{ '/assets/js/modern-interactions.js' | url }}"></script> -->   
     
@@ -79,6 +79,9 @@
     {% endif %}
 
 <script>
+// Deferred scripts (incl. jQuery) finish before DOMContentLoaded fires,
+// so $ is guaranteed to be available inside this listener.
+document.addEventListener('DOMContentLoaded', function() {
 $(document).ready(function() {
   // Mobile menu toggle
   $('.menu-trigger').on('click', function(e) {
@@ -103,6 +106,7 @@ $(document).ready(function() {
       $('body').removeClass('menu-open');
     }
   });
+});
 });
 </script>
   </body>
