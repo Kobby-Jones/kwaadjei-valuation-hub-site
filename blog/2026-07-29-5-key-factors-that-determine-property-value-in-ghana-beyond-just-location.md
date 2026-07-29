@@ -13,7 +13,9 @@ tags:
   - Land Management
   - Valuation Insights
 ---
-# Compensation Valuation Explained: What Landowners and Communities Should Know About Mining & Resettlement Projects in Ghana
+### Compensation Valuation Explained: What Landowners and Communities Should Know About Mining & Resettlement Projects in Ghana
+
+![compensation-valuation-mining](/assets/images/blog/compensation-valuation-mining.png "compensation mining")
 
 For many families and communities in Ghana's mining regions, the arrival of a mining concession or a government-backed resettlement project raises one urgent question: "What is my land and property actually worth, and what am I entitled to?"
 
