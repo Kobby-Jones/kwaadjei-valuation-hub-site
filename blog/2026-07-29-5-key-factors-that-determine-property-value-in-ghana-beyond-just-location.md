@@ -5,7 +5,7 @@ title: "Compensation Valuation Explained: What Landowners and Communities Should
 date: 2026-07-29
 author: Surv. Jonas Kwame Adjei (MGhIS)
 category: Valuation Insights
-image: https://unsplash.com/photos/photography-of-excavators-at-mining-area-Mk2ls9UBO2E
+image: /assets/images/blog/compensation-valuation-mining.png
 tags:
   - Compensation Valuation
   - Mining
