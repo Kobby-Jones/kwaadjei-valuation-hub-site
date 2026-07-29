@@ -74,4 +74,4 @@ As you can see, determining a property's true value is a complex task that balan
 Before you make a major financial decision, you need a defensible, accurate, and professional valuation report.
 
 Need an accurate valuation for your property in the Bono Region or anywhere in Ghana?  for a consultation and receive your report within 48 hours,
- [contact Kwaadjei Valuation Hub today](https://kwaadjeivaluationhub.netlify.app/contact/)
+ [contact Kwaadjei Valuation Hub today](https://kwaadjeivaluation.com/contact/)
