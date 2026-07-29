@@ -12,6 +12,8 @@ tags:
   - Property Market
   - Sunyani
 ---
+![Property Valuation](/assets/images/blog/property-value.jpg "Factors That Determine Property Value in Ghana")
+
 "What is my property *really* worth?" It's the most common question in real estate, whether you're securing a mortgage, preparing for a sale, or assessing assets for your business.
 
 While "location, location, location" is the famous answer, a professional valuation is a complex assessment that goes much deeper. As certified valuers based in Sunyani, we see clients overestimate or underestimate their property's value daily by overlooking crucial factors.
@@ -45,7 +47,7 @@ This is a critical factor in Ghana. A property with flawed or non-existent docum
 * Bankability: Lenders and financial institutions will not accept a property as collateral for a mortgage without a clean, registered title. This directly impacts its marketability and value.
 * Lease Term: The remaining term on the lease (e.g., 50 years left vs. 90 years left) directly influences the value, especially for commercial properties.
 
-We covered the steps to secure your title in our other post, "[The Complete Checklist for Land Title Registration in Ghana](https://kwaadjeivaluationhub.netlify.app/blog/land-title-registration-ghana/)."
+We covered the steps to secure your title in our other post, "[The Complete Checklist for Land Title Registration in Ghana](https://kwaadjeivaluation.com/blog/land-title-registration-ghana/)."
 
 ### 4. Property Size & Usable Space
 
