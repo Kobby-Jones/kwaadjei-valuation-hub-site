@@ -1,6 +1,7 @@
 ---
 layout: post.njk
-title: 5 Key Factors That Determine Property Value in Ghana (Beyond Just Location)
+title: "Compensation Valuation Explained: What Landowners and Communities Should
+  Know About Mining & Resettlement Projects in Ghana"
 date: 2026-07-29
 author: Surv. Jonas Kwame Adjei (MGhIS)
 category: Valuation Insights
